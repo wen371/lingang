@@ -28,7 +28,7 @@
         <beetl.version>2.7.15</beetl.version>
         <swagger.version>2.2.2</swagger.version>
         <commons-lang3.version>3.6</commons-lang3.version>
-        <shiro.version>1.4.0</shiro.version>
+        <shiro.version>1.5.3</shiro.version>
     </properties>
 
     <!-- 统一管理 版本号 -->
