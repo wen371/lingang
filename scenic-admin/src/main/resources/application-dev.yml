@@ -1,0 +1,134 @@
+fileurl:
+  uploadurl: D:/baoshan/file/Pictures/upload/  # D:/baoshan/file/Pictures/upload/   /Users/soft/temp/upload/
+  ueditorUrl: D:/baoshan/file/Pictures/  # D:/baoshan/file/Pictures/  /home/softvan/baoshan/file/Pictures/
+  videoUploadUrl: D:/baoshan/file/Pictures/upload/video/
+  audioUploadUrl: D:/baoshan/file/Pictures/upload/
+  QRCodeUrl: D:/baoshan/file/Pictures/upload/
+
+spring:
+  mvc:
+    static-path-pattern: /**
+    view:
+      prefix: /template
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static,classpath:/public/,file:${fileurl.uploadurl},file:${fileurl.ueditorUrl},file:${fileurl.videoUploadUrl}
+  jackson:
+    serialization:
+    write-dates-as-timestamps: false
+    serialization-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08
+  datasource:
+        name: test
+        url: jdbc:mysql://47.101.49.227:3306/lingang_new?autoReconnect=true&amp;rewriteBatchedStatements=true&characterEncoding=utf8&amp;socketTimeout=30000&amp;connectTimeout=3
+        username: root
+        password: softvan123
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: log4j,wall,mergeStat
+  rabbitmq:
+    host: 120.55.54.138
+    port: 5672
+    username: admin
+    password: admin123
+  redis:
+    host: 120.55.54.138
+    pool:
+      max-active: 30
+      max-idle: 20
+      max-wait: 15000
+    password: 2018Admin2018
+    port: 6379
+    timeout: 25000
+  servlet:
+      multipart:
+        max-file-size: 30Mb
+        max-request-size: 30Mb
+
+mybatis:
+  type-aliases-package:  com/jw/**/bean #com/jw/**/bean
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+mapper:
+  mappers: com.jw.common.bean.BaseDao
+  not-empty: false
+  identity : MYSQL
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+###################  beetl配置  ###################
+beetl:
+  delimiter-statement-start: \@   #开始结束标签(yaml不允许@开头)
+  delimiter-statement-end: null
+  resource-tagroot: common/tags   #自定义标签文件Root目录和后缀
+  resource-tagsuffix: tag
+  resource-auto-check: true #是否检测文件变化,开发用true合适，但线上要改为false
+
+Callback:
+  Key: xxx
+
+hsf:
+  sys:
+    version: 1233
+    group: xiao1233
+
+log:
+  address: /Users/soft
+
+fwh:
+  appSecret: 2ee61b29b2c2b46c717735588d9f6352
+  appid: wxeccd33f803456ca5
+  url: http://ecard-test.95505.cn
+https:
+  url: http://127.0.0.1:8836/tour #    url: http://kargilik.xbdcar.com/baoshan  http://127.0.0.1:8091/baoshan
+  domainName: http://127.0.0.1:8836/tour
+  mxp_url: http://gucun.cs.leyoujisan.com/yxpt/#/postcard?chcode=CHCODE&scanpoint=SCANPOINT&usrflag=USRFLAG    #公众号明信片跳转地址
+epolicyUrl:
+  url: http://
+
+
+pom:
+  see:
+    tooken: 5d70ac479a1946e7a475b5d41f58ce0b14cde655
+    cooperation: ecardseefee2.0
+  not:
+    tooken: da8697efd794452faa3fa271b8863b236daceec4
+    cooperation: ecardnoseefee2.0
+
+  download:
+    url: http://180.168.131.21/NCPI/trans/einvoiceDownload.do
+multipart:
+  maxFileSize: 15Mb
+  maxRequestSize: 100Mb
+
+zfb:
+  APPID: 2016101000649226
+  RSA_PRIVATE_KEY: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQChdCrnmVTQ4GPw05uhHaHohg2dH93cyoRuetjPPB7mVSXE19HO5F3lno3UjU9WgQGB+NldZamVMv0vh/yf8C/HZ6XNxSc2UBoZQ2yRXVeyM3RgF0/j7bDWERJn4+jkVFKUolg85wojzwLGq0tqY90dErQRuyLYdehJOQ50nZ5dEQZ+AZTx9kfChVijmfQOSxcVC2x1u2JhgdQt9n9Zse3xFCCxcWdXFjNpraZpZwh386/VgfI807bnjTGILX+4CbRsXTB1S3ge5kHYL/xGWzGMvofPyzZs5jYo1kNQoZSGLuwD/gTXLq2E7z0Ovtr11SQc/4j+a2XX2Wm5OWLUbWn3AgMBAAECggEAdLr/tjjm2KoTt+/WipNZFzusphh/GP4W56XMEXD/SjrvtrTvTW1Q8g5DrxSH8xwMkgLwbRVumZ+m7HGeVaibcsleWDqd0ifx5qgX27WoDQAkuMDCEyIsA2mObCycmlDY7/u8XjQQ4bju4eLBAOe42ydFp7gsRmJhEme9KtU2xUO9tADabbY1szym0nf9zJu02T2rwpXQTTfeSDESMxzxBIHm32pOIrOho+JOC5Tqvxer/12Fj5A9xqvsD+BaUR1/OQy4aM4FsgjdKE7Q9NFbXpE6HJ4w/BeWWfqYQP5MlZsodv66973IFMeOGAotssSulyb9ThN0G9Eq01DK1YQ8kQKBgQDfIj4+jF4FCMm1HniB4b3587Ipu7NU9Pvwank16D54HWUDvRmzLihrk7RXi/MBXSWNSmDKIwdcG6Hpft966Pi3scx/iNEYHkDAVM37dX5oPQsSGDJ4XkpBoCrJXRJ94WPtXk+wmga008lr32yR/edei0lH5eZIQGtPhEgVl/Ak/wKBgQC5PCSYlVHKOZD3nnymHlg2cq9LZvSHA2qXlui9nkFp4QCYhnGTHzBaEfSxyQJiRWztd2KMAjBttlCiNFdQ4KMgD1y2wCExqZ2QEqHfmf7Zkvklim2Bj4LV1Qs5JFDo/aB61xEWMjpITelRRVHwz8MwxESdd38tS8M8Zf24zdLjCQKBgQChAhqcE7l8NH0oPlaCkhv9ksWKq7CZqzVoo8vXBECfd8Z+TiOPUc1E4w4M5iVxZH9GVtdExMX4xs+spyonjJh8JMYFePo4Rww+PHNt8bhHC1VDt0Yj6RX4CNUW/BvtzYfHrngeXOZd8Ty0pEG5jtc3N5anVNM4a5ODi1ZgjoRwjQKBgHOfgwhrTF56iG7IUu4uSsnR1HGwljoge8ybujOCMTqx4/lRElvPQBM42hCPdBl7VH714mGajDgvcS2OlmI5lhlQ/YJlc1LYmS1xM/Gq4lVVVIeGXMxelEB9dz/31zlX93A2BshgGdlAKL8+EePLC//Iwzu3d38Cp59v2mwcreJhAoGAGphpMWoF7u+LS1aSuhmknBSLAL7hoOuvtFZ65NsU3LnRb7tLoXvVcwMPk+R/Ut4+5mrZNEFmmcanDTPIZTxak0whKAf4TGRZiMZ6BpnZ+CTVexxr9dOsB9HJ85qNwlaL93PLEakDOMWIRHKSzaoYip8jyUNXHQPLxzm1J5KXMEQ=
+  ALIPAY_PUBLIC_KEY: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnTNYGisdB1VSfqfbcd9EUIvGLF1DqJE1U3wAFDjqgjGU+4maf1+hFmIb7ZZmWS+EQlZr1hh/nOEAskklwsebrZXvHLhfSWj6jXTN2/RJ5g7X+v3pUvOn3jC4QcX6X2QM7lYE1NZVI48roqgteHEnY6LtCAAX0UC0NtrhV2ARKkg8utuozeOdQTsYt/EEZkJZ9HwhAWs5p/D6b6ION4XR05vL7ddwXccGzabuArK1xBcxeknpjRqihCkpsAr8lMpLSaGsLURU+bJ8Cfy7PhM6YhttrgIFDK5mdiqgE07N01JEgdQap0lph+ac7raZ4bhbSHq/9gFXSasmxpdKIosdBwIDAQAB
+  notify_url: http://bvknf5.natappfree.cc/business/api/notifyCallBack
+  return_url: http://192.168.21.156:3000/#/getTicketProductList
+  SIGNTYPE: RSA2
+  CHARSET: utf-8
+  gateway_url: https://openapi.alipaydev.com/gateway.do
+  seller_id: 2088102178859920
+  payFlag: false
+
+METRO:
+  PRIVATE_KEY: MIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQCUrSaXoNt7y20fnNE8WxcsmVlICQJ1JndAdKoJ+G2NOQTIKflX9ERvFF3sPhKwRWjbKKu8bxLYSEGEVs4Mj+Tkt/rWCasqODYjUHRRqmr9cvxowpoSkCwwCYcdtKLi+qTfuqUhOryekHVKBMo9cS3F858LwYDrV5xTERhfa56oUlwBKJz6aJ8fRpYtxn9dADbYoNtupSqKt1tNlPvWDI05zd9XI9vetDc1zL2CEYWPqKkUXVd2jbVyM48siM8p151EdaKCjmbu4I+SdihQ7sO6eiXUb6KnHDrl3sD8vn+JR6uaUWSSBYU0nBxY+IGEq829KxAtm2B18csUXsAfT85dAgMBAAECgf9qR1xPB63d0I0xC+iGPJdUSkqIM+iN1fFpIfxrJCsryJaif16+gN5qiSSau8SgPP23rFsXWE8gTIaJE4Q3dqUo2lt0pXS1uXj5xYlg13Gju46zVGjO3EC6FhWAJqBJoOI7DDD+j/5FWv586u+m/EC8QGpw/OIrWXVl69KAY24G48BsvRxkbXNgq5zN5q2t/M0FMN0aaFf84l8cAdtpNq8aea7Wh1wIGta6pbuO4ttLB+XcXeOT63mWNWVg9cF4XFJoElw1epIPCNnWD7esa5qFwoo4RfdkKl9+J+sjfXJXATjIayMrXYcQtsB60VqqxlvqSkq0EcYwPLqo7+HfEGUCgYEA2KWFtArgdCGsTYAT+2OQX1uyJsHCwpSVg8gYEutfescmcXQUHt0HvN3ceTRfvLn3XzZGvgY02zjQFqg0AXjysYwEYv1Z026ZicJTLI34RQUlzrkkGPnZpZxx4Zm2M32UJWCWjOa8798HRSS4eED8GXWs+jAapwoxuKPzUf1gXiMCgYEAr67igqHWufOkFw2A4OOFjVXGTL6w0bmpCH32qWF7+jkTcaU2oaSyQTh7gvd+1/jSmFuepLUpNz4HKsFimrqGFgNuxtJe2hfpbB0y/u4i31AZf7QJh1kkIw3uZUUVd6ZZNWLNI8lbMWjUDBd5n6sGZl/Dvd44tkMqgRjBZ2f0qX8CgYBgAgJdhlBvxphoA/FW/4l0aNtrR4S63EPiEaNxhvNaIrVLo+hiwQrzzNIuuGIQ7czNWe1Buthjqiq1T7c0S9gpjGZJRAMxqprKLN7VKNk0JRLbKLrxgo/MT6c8FfVjniwv4Dz3li12k7zSDHLff9T4p2iPuw+kpOTh8W4cEJBLRwKBgQCcEOThnTluaVTssa86mIPsoTUOuhvDw4W4qIW1xIbpK0jtnRHiGLfNnoqCNrC01TLn7AQLV2/sxiqBvdeFkotJBPWko/9lCPbwdyP1OcE61iJAwsPwO60Rgu+zgOJoLxtyhHmt/9MGGpS8xSHjSH/f89SkV8PTjek1U7OD0+KRqwKBgHNE2elQV8oNqPaYnYeB/Idb9VEou5qLdvNBo1OmZcrzoDS0QKlP/6frgGVSG/l4iEIkTGYHRlij3YjBaFkIwmrzxiO1AbUn759Id16EtWdWhvZvSFU6o1bLAE0+8v49ZSKO2uRvzmHkNy7gIM8g+cTnSuV//0/Hyvfh1cJsj9Sj
+  APP_ID: 2019051149874243
+  SIGN_TYPE: RSA
+  URL: https://test-duchang-openapi.bangdao-tech.com/gateway.do
+#server:
+#    port: 8081
+
+wechat:
+  mp:
+    appId: wxcbed07c60f8b8efe
+    secret: dca01a758d7f47cf72a2117d93b73087
+    token: JavenTest
+    aesKey: CjD4TPS7A6JV6EyE6IVPQDHFsTOsy2YRGKSE9a1ceXw
+    mchId:
+    mchKey:
+    keyPath: D:/baoshan/file/apiclient_cert.p12
+    IPAddress: 39.108.233.166

@@ -1,0 +1,141 @@
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-size: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.body {
+	width: 100%;
+	height: 100%;
+	background: url(../../img/bg.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.body .heads {
+	width: 100%;
+	height: .85rem;
+	background: url(../../img/heads.png) no-repeat;
+	background-size: 100%;
+	padding-bottom: .3rem;
+}
+
+.body .titles {
+	padding-left: 1.5rem;
+	height: 100%;
+}
+
+.body .titles .project {
+	width: 3rem;
+	display: inline-block;
+	height: 100%;
+}
+
+.select {
+	border: none;
+	/* 清除默认的箭头样式 */
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	/* 右侧添加小箭头的背景图 */
+	background: url('../img/xiala.png') no-repeat scroll right center transparent;
+	background-size: .23rem;
+	font-size: .3rem;
+	font-family: "PingFangSC";
+	color: rgb(255, 255, 255);
+	text-align: center;
+	padding-right: .3rem;
+	height: .85rem;
+	line-height: .85rem;
+}
+
+option {
+	background-color: #00071a;
+}
+
+.body .titles .tab {
+	display: inline-block;
+	font-size: .24rem;
+	font-family: "PingFangSC";
+	color: rgba(255, 255, 255, 0.702);
+	vertical-align: top;
+	line-height: .63rem;
+	width: calc(100% - 6rem);
+	margin-top: .11rem;
+}
+
+.body .titles .tab div {
+	display: inline-block;
+	width: calc((100% - 4.25rem) / 4);
+	text-align: center;
+	margin: 0 .5rem;
+	padding-bottom: .17rem;
+}
+
+.tab1 {
+	background: url(../img/bg1.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.body .left {
+	display: inline-block;
+	width: calc(50% - .74rem);
+	height: calc(100% - 1.65rem);
+	vertical-align: top;
+	background: url(../img/bg11.png) no-repeat;
+	background-size: 100% 100%;
+	margin-left: .3rem;
+	margin-right: .24rem;
+	padding: .1rem;
+}
+
+.body .left img {
+	width: 100%;
+	height: 100%;
+}
+
+.body .right {
+	display: inline-block;
+	margin-left: .24rem;
+	height: calc(100% - 2.15rem);
+	vertical-align: top;
+	padding: .35rem;
+	width: calc(50% - 1.24rem);
+}
+
+.body .left1 {
+	display: inline-block;
+	width: calc(50% - 1.18rem);
+	height: calc(100% - 2.21rem);
+	vertical-align: top;
+	background: url(../img/bg11.png) no-repeat;
+	background-size: 100% 100%;
+	margin-left: .3rem;
+	margin-right: .24rem;
+	padding: .38rem .32rem;
+}
+
+
+/* 设置滚动条的样式 */
+
+::-webkit-scrollbar {
+	width: .10rem;
+}
+
+
+/* 滚动条滑块 */
+
+::-webkit-scrollbar-thumb {
+	border-radius: .08rem;
+	background: #4396a8;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255, 0, 0, 0.4);
+}

@@ -1,0 +1,113 @@
+fileurl:
+  uploadurl: /mnt/softvan/gucun/tour/file/Pictures/upload/
+  ueditorUrl: /mnt/softvan/gucun/tour/file/Pictures/
+  videoUploadUrl: /mnt/softvan/gucunTour/tour/file/Pictures/upload/video/
+  audioUploadUrl: /mnt/softvan/gucunTour/tour/file/audio/
+  QRCodeUrl: /mnt/softvan/gucun/tour/file/QRCode
+
+spring:
+  mvc:
+    static-path-pattern: /**
+    view:
+      prefix: /template
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static,classpath:/public/,file:${fileurl.uploadurl},file:${fileurl.ueditorUrl}
+  jackson:
+    serialization:
+    write-dates-as-timestamps: false
+    serialization-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08
+  datasource:
+        name: test
+        url: jdbc:mysql://127.0.0.1:3306/gucun?autoReconnect=true&amp;rewriteBatchedStatements=true&characterEncoding=utf8&amp;socketTimeout=30000&amp;connectTimeout=3
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: log4j,wall,mergeStat
+
+  redis:
+    host: 127.0.0.1
+    pool:
+      max-active: 30
+      max-idle: 20
+      max-wait: 15000
+    password: soft20180508van
+    port: 6379
+    timeout: 25000
+  servlet:
+      multipart:
+        max-file-size: 30Mb
+        max-request-size: 30Mb
+
+mybatis:
+  type-aliases-package: com/jw/**/bean #com/jw/**/bean
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+mapper:
+  mappers: com.jw.common.bean.BaseDao
+  not-empty: false
+  identity : MYSQL
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+###################  beetl配置  ###################
+beetl:
+  delimiter-statement-start: \@   #开始结束标签(yaml不允许@开头)
+  delimiter-statement-end: null
+  resource-tagroot: common/tags   #自定义标签文件Root目录和后缀
+  resource-tagsuffix: tag
+  resource-auto-check: true #是否检测文件变化,开发用true合适，但线上要改为false
+
+Callback:
+  Key: xxx
+
+
+
+log:
+  address: /Users/soft
+
+
+https:
+  url: http://gucun.leyoujisan.com/tour #    url: http://kargilik.xbdcar.com/baoshan  http://127.0.0.1:8091/baoshan
+  domainName: http://gucun.leyoujisan.com/tour
+  mxp_url: http://gucun.cs.leyoujisan.com/yxpt/#/postcard?chcode=CHCODE&scanpoint=SCANPOINT&usrflag=USRFLAG    #公众号明信片跳转地址
+epolicyUrl:
+  url: http://
+
+
+
+multipart:
+  maxFileSize: 15Mb
+  maxRequestSize: 100Mb
+
+METRO:
+  PRIVATE_KEY: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCMYww8TvXwnPR8YOSx4cqwznO+Nr9b4rwlXZVGtgROS4qQLcBG1z/9YgeM01gsHP66j7iuGB3OvrzuJ1uoHQcZ0wA3++PaS6vEkuM7U1YwJiIzv0RUB2Xi87q69oCggsdjMQGS5AD2a3s8p4ifQulGgg5Thlht/zaVKm9bu6ivinlKWrC3B36LInHnJ1y0RxRZHSAQumdPPO0hUoWtR3T+/ofFgOW7bEaxg6BQBg/HaYwcIG+BVwsj2yO6Q9jirBpQoM518ntvVX4WiUK6P26N4T3IT+dxbw2SUZ5nJ35LPjWDzRUk+YcmnMlos6Zkz9OMnYemfkG2mpQNX8BYBeitAgMBAAECggEAfJzK1pmMS2k2x1TGi3MOFQUcziIQmAJZ2Z0JDTwx9EGvnC1QOFGGtmaWpxVOddHC9lzupHI5uzOpxoffHwmtLOoTjp4jcbirnpB37UgbACBJSb+kaiYq9Vo9TQnTwSZ00AJHEFkc1Z8wQ/W+Gwgswu5cwx1ET1cz3xJMyJN5t16VdPtwpHUgZx2thgMHsu/dDh5kKkIlNVhjK0sXoZ/uv9P3TGyeQFWPk0aKbMiYqL7ugJYZT0dqPrm9WdA1FJfr7lFY5EF6vjmU+Qu3NYHMLFtBP/ijvx+6/OuFAw5/1rA+HK6ECS2+/1x1NhNnCTLEoQI6xOI14Jiq0tKak2wbDQKBgQDDnqu7yJx1oaPw5EdqexR8TdcQwixQX/Rkl97SKd2CKdF3qrvcszdK/Zvcs8kAuYAZ6IjVDpiVJatdTSFmYRLOnsvwu+5PJX+tMMsIcGevV3Wd8SE27Xdp0wuuzQ+JNWEmenQvxyDDPC+cUnXPezSXf0To1+xJaMlbKdDLByCZBwKBgQC3uAcakPdwTyCQgwGu1y76AwL7y7wr25MUEN0deU2UiUmrzGcoQ4h+vNw0ckYOZIpzxBFexyVFeZX2cIZnjcnk84O/aYSF2iLUyg0RpJWg2Oij5+EF/H2fMaqSGTIfywVg5wcwpU9kr1CQmwmsasMuISC3Gj1ggPoew665lMuHqwKBgBlrUN2B3/LZIjh3MWCAxdSxOLUQxjlbfqJjqaydjA8R6AoowWiYUSMJeWtgYUoa0K6NLNqinukij/X7w89N5ee7crzBbuIR+VlD8d4S3SZHsxzm7G36xX2W0vnP46jsqscZOmfK9FLqSzWA8ZYYaGkXPJkVFbskRqX19Q+syWuZAoGAYcXgkfTgmrahwAbYmHIQoCGGLvcIV9bteVpYMt1hulEuEe4gYD9AnyJnlsnSGsrLHD0WeXhGj6jbdGICRY4iCmTGktHXI10p+FDnj6Ilt4p4lPJMwWDUgipuen5KPL1RSXbqTqtLi2v51luMVGQlJ6GdxZSDYZ6Cfmjpzf4wKy0CgYEAm43aIqW4hbn4EkcvFRtzZO/5Cr9oR5CGXRQ2sXqO0TQMAjnc1B2ZiGqkjaW3AfBd0d4qGEuBSRryZx1pSB5iKi1Cb4Ucdo7ZrDJpjztAB8HH9UiQpnUhW9E9QjmEqkQmBq1kyOiMzAOtwuQHptiK0SMwclcCFYMBITedAt5Ti9Y=
+  APP_ID: 2019051149874243
+  SIGN_TYPE: RSA
+  URL: https://outlet.metrofastpass.com/gateway.do
+
+zfb:
+  APPID: 2019073166077316
+  RSA_PRIVATE_KEY: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCbZRMApQLsx1kWMp+CbDqTzK7DviWi881djPHehFh0tE32j1CSJ3ev5E2bAlwE49lHaQlUaA4XMfnwbRKSSAsahX0ZqwXHkw/BW0Qluw05uLyavNAT1euppD7ZgywwCg22rCrrueXm+rG82KagoCJmRORa8KZEzOaHpp/27W28KeooiYJwufT+mb9H6mPsCsnMY35la2b8fMrijMioKboKnBkT306BteRIR2InIkGVi5w2YYDWQ/J8ZpQAjqNeI9ObB9kwyzEEX1JMGynklEocLIVLDj4P8dbwmC0UCq098sCJrngUV+rSscQ5YmNfANxsw8ArzPknOnZn0Zv5FlTXAgMBAAECggEACdXX4g6PpNTpOpJxrhuTiY9G8HS0hR/RO76UAHV388sFtDlV7Co7VRKqJsl7cYPKWM65HHKJkcZD/4enyUJuEXupc1pzvzH7qU1RfuHb8G9U4KZatSaxB8exgqrevRulyo4TGWBmwLvVTBKaWUhJZRevLGJW47vkS2msbkCQ1XvoTHI949pBPhYcpSdDXHvAJYP6LG+yg7EIcBuVJIxGavYmb+qIlsyfpx9WzRTU/aUm8VMM6/n0Ld0/wwZ6KAOVCB5MIb19G9KFTd5UoND1sXOKrNNwWBIbTsnoz84wgTH1uVnACXeQrOhh4WAhiTuYr+cvKC/LRbj72YpiSS56oQKBgQDbtMAlfeOy1QMpuWC7vm9gLOjnEgs4+H1r9LurSiTS1Kk/ThSrpnD7dIcNDbGQc+3ChDVzlqvnDvgDqI1XdpjN82vwAOpdXE6kMaEEYVvZ+k04QzCoGjrcknoulx8UIjoavUc/coc6khZCNKzJ7ee/sercLjbJf1eNRnF/WoL1tQKBgQC1EKL0ZSB/XTkZrOhr9WBfbF625iU+WLNT/xig8FK60m01ueHPdP3oWV41OkvH791CNtzqgBhnxD2VgtJRrO20NRrI2GM+OMBhDqZtpmyeZPGPqW6rttwL1wGhERn9X7RFUQCvq3evPFhvZRwdrYKnAXV2LI5R4GciP1rwNdt32wKBgEmlPQNUP48id/z0dsh3/T1v0GIkWj6ujNwzHPU91ToWruTZd3RSRm0DkoF9pZeWRIx/ZKtqRhUdn2UaisZWqsHeZr/8jpLc7j97o02klPVsQZYqb5TptfFZ6DrVzUUic/eims9ZxJqNfYiTv5ewd456RQ+pLhQ860wf4Mufu2ZBAoGAf7AYyvMaBNewMewfCCtF6GVbMe6Ba0NQS7cFHlH8daV5wL6ygQPHH3kOl8jhskD0rwJTrsfg7iSVLX/RZCnohAJDPkpjSnjpKkkTkxYfWWBkfeSFmHDfIzZf/r85rdY1IgDq0/e+8oRC9WO/fSpkjfPYaxsmzpTLBnrZXbcNa6sCgYEAwvJkTc/AOWY58qlR89p5Sk/swRN18NEB2ux9CXj0bmJylotNc8RbwYU+NTXNAy+uvyphF9z51r7gyg4BgTDrYDgZH5jO9xUOh4uQrmVn16z7dymaJJzRu50KdYRcIncwCrquMCOG5HuFe7WPn9wUDB2YAjFfE6MzJxGKneqpfUo=
+  ALIPAY_PUBLIC_KEY: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhL2IAfLPNsa4i0qBIo834HqWeqZ93FlOKM5/ZolZV8+PiPasfgVnhKUc+yoFl8oaL9FZ8eQY8iyeZIVYbuUaIfU47lKDWyky80aI/nIil5zLzhD7XzkUzQV9ghfhaniUAKF7TL1LsGDjwSB3zhm0GQDPiCugyElJ5W29Ikyv6OtgQCV343eoa+N3/I95avevpn93pPqaBhkIzdDAAVO+68wYOAZsm89l7k1ur8gspZL70o1+1FxxiETGVtx7RZ+E8WJgHESn0gSSViI49ovxcYNl+s4VLKw5FUsCbW5nPQ/rdUjwyy3ISVqSJnbExjjTgwqQ7jsoABMP9M9qjDildwIDAQAB
+  notify_url: http://citypass.leyoujisan.com/business/api/notifyCallBack
+  return_url: http://citypass.vue.leyoujisan.com/#/paySuccess
+  SIGNTYPE: RSA2
+  CHARSET: utf-8
+  gateway_url: https://openapi.alipay.com/gateway.do
+  seller_id: 2088001619822885
+  payFlag: true
+
+wechat:
+  mp:
+    appId: wx429273e71c983c43
+    secret: aca53e13ee4da35be210fcea0db4b198
+    token: da32fsf15gd2fs87
+    aesKey: CjD4TPS7A6JV6EyE6IVPQDHFsTOsy2YRGKSE9a1ceXw
+    mchId: 1547623011
+    mchKey: SD5F414X5D1F4X1S2D5F4G1A2S5D4F12
+    keyPath: /mnt/softvan/gucun/business/file/apiclient_cert.p12
+    IPAddress: 127.78.200.31

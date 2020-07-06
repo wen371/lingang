@@ -1,0 +1,114 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="scenicSpotAddForm">
+            <input type="hidden" id="id" value="${ScenicSpotVo.id}"/>
+            <div class="row" >
+                <div class="col-sm-9">
+                    <#input id="name" name="景区名称" underline="true" value = "${ScenicSpotVo.name}" />
+                </div>
+               <!-- <div class="col-sm-9">
+                    <#input id="synopsis" name="简介" underline="true" value = "${ScenicSpotVo.synopsis}" />
+                </div>-->
+                <!--<div class="col-sm-9">
+                    <#input id="phone" name="联系人手机" underline="true" value = "${ScenicSpotVo.phone}" />
+                </div>-->
+                <!--<div class="col-sm-9">
+                    <#input id="city" name="所属城市" underline="true" value = "${ScenicSpotVo.city}" />
+                </div>
+                <div class="col-sm-9">
+                    <#input id="area" name="所属区域" underline="true" value = "${ScenicSpotVo.area}" />
+                </div>-->
+                <div class="col-sm-9">
+                    <#input id="address" name="地址" underline="true" value = "${ScenicSpotVo.address}" />
+                </div>
+                <!--<div class="col-sm-9">
+                    <#input id="ticketingAddress" name="取票地址" underline="true" value = "${ScenicSpotVo.ticketingAddress}" />
+                </div>-->
+                <!--<div class="col-sm-9">
+                    <#input id="rank" name="等级" underline="true" value = "${ScenicSpotVo.rank}" />
+                </div>-->
+                <div class="col-sm-9">
+                    <#input id="openHours" name="开放时间" underline="true" value = "${ScenicSpotVo.openHours}" />
+                </div>
+               <!-- <div class="col-sm-9">
+                    <#input id="ticketingHours" name="取票时间" underline="true" value = "${ScenicSpotVo.ticketingHours}" />
+                </div>-->
+                <!--<div class="col-sm-9">
+                    <#input id="theme" name="主题" underline="true" value = "${ScenicSpotVo.theme}" />
+                </div>-->
+
+                <!--<div class="col-sm-9">
+                    <label class="col-sm-3 control-label">标题图</label>
+                    <div class="col-sm-9" style="padding-left: 20px" id="sc">
+                        <div class="file-loading ">
+                            <input id="input-folder" name="file_id" type="file">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <label class="col-sm-3 control-label">巡播图</label>
+                    <div class="col-sm-9" style="padding-left: 20px" id="sc1">
+                        <div class="file-loading ">
+                            <input id="input-folder1" name="file_id" type="file" multiple>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">详细信息</label>
+                        <input style="display: none" id="text1" value="${ScenicSpotVo.details}" />
+                        <div class="col-sm-12">
+                            <#ueditor2 id="details" name="details" type="text/plain"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row btn-group-m-t">
+                <div style="text-align: center">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="scenicSpotAdd.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="scenicSpotAdd.close()"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${basePath}/static/modular/system/scenicSpot/scenicSpot_add.js"></script>
+<script>
+    $(function () {
+        Feng.initValidator("scenicSpotAddForm", scenicSpotAdd.validateFields);
+        /*var url = "${basePath}" + '${ScenicSpotVo.headImg}';
+        console.log("初始化图片："+JSON.stringify(url))
+        $('[id^="preview-"]').addClass("col-sm-3");
+        $("#input-folder").fileinput({
+            initialPreview: url,
+            initialPreviewAsData: true,
+            uploadUrl: Feng.ctxPath + "/scenicSpot/uploadImg",
+            overwriteInitial: false,
+            allowedFileExtensions: ["jpeg", "jpg", "png"],
+            maxFileCount: 1
+        });
+        //巡播图加载
+        var arr = '${fileResult}';
+        console.log(arr);
+        var array = JSON.parse(arr);
+
+        console.log(JSON.stringify(array));
+        var urls = new Array();
+        var url1s = new Array();
+        for (var i = 0; i < array.length; i++) {
+            urls[i] = {caption: array[i].name, downloadUrl: "${basePath}" + array[i].url, size: array[i].size};
+            url1s[i] = "${basePath}" + array[i].url;
+        }
+        $("#input-folder1").fileinput({
+            initialPreview: url1s,
+            initialPreviewAsData: true,
+            initialPreviewConfig: urls,
+            uploadUrl: Feng.ctxPath + "/scenicSpot/uploadImg",
+            maxFileCount: 9,
+            overwriteInitial: false,
+            allowedFileExtensions: ["jpeg", "jpg", "png"]
+        });*/
+    });
+</script>
+@}

@@ -1,0 +1,47 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>景区信息</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row row-lg">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12">
+                                    <!--<div class="col-sm-3">-->
+                                        <!--<#NameCon id="name" name="景区名称" placeholder="" />-->
+                                    <!--</div>-->
+                                    <!--<div class="col-sm-3">-->
+                                        <!--<#button name="搜索" icon="fa-search" clickFun="ScenicSpot.search()"/>-->
+                                        <!--<#button name="重置" icon="fa-trash" clickFun="ScenicSpot.resetSearch()" space="true"/>-->
+                                    <!--</div>-->
+                                    <div class="row" style="margin-right: 0px">
+                                        <div class="hidden-xs"  role="group" style="float: left">
+                                            <#button id ="openAdd" name="新增景区" icon="fa-plus" clickFun="ScenicSpot.openAddaddActivity()"/>
+                                        </div>
+                                    </div>
+                                    <#table id="ScenicSpotTable"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="${basePath}/static/modular/system/scenicSpot/scenicSpotIndex.js?v=1.0"></script>
+    <script>
+        $(function () {
+            console.info("init...")
+            var userScenicId = "${user.scenicId}"
+            console.info("id : " + userScenicId)
+            if(userScenicId != 0){
+                $("#openAdd").remove();
+            }
+        })
+    </script>
+</div>
+@}

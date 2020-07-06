@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* pages/termsinfo/termsinfo.wxss */
+
+.view_context {
+	margin: 20px;
+}
+
+.title {
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+	border-bottom: 1px solid #000;
+	margin-bottom: 10px;
+}
+.context_title{
+	font-weight: bold;
+}
+.view_context_title{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.context {
+	font-size: 14px;
+	font-family: '微软雅黑';
+	margin-bottom: 20%;
+}
+.table_context{
+	flex-direction: row;
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	display: flex;
+}
+.view_table_context{
+	border-right: 1px #000 solid;
+	width: 80%;
+	padding: 5px;
+}
+
+
+

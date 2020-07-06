@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<configuration>
+    <property name="logPath" value="${log.address}"/>
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <!--展示的形式-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!--具体的格式-->
+            <pattern>
+                %d [%thread] %-5p [%c] [%F:%L] - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <!--每天都输出日志文件，所以是滚动-->
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <!--如果找到error级别的日志，就deny掉，反之就accept-->
+            <!--如果要用到下面两个element的话，filter的class得是LevelFilter，就不能是ThresholdFilter-->
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>
+                %d [%thread] %-5p [%c] [%F:%L]
+                <!--[trace=%X{X-Trace-Id:-},span=%X{X-Span-Id:-},parent=%X{X-Parent-Id:-},name=%X{X-Span-Name:-},app=%X{appname:-},begintime=%X{begintime:-},endtime=%X{fin-X1-time:-}]-->
+                - %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略,按照时间来滚动 的-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径,日志文件名不加上一个dateToken会报错，不信你去试-->
+            <fileNamePattern>
+                ${logPath}/info.%d.log
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--过滤，只输出error级别的日志-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>
+                %d [%thread] %-5p [%c] [%F:%L]
+                <!--[trace=%X{X-Trace-Id:-},span=%X{X-Span-Id:-},parent=%X{X-Parent-Id:-},name=%X{X-Span-Name:-},app=%X{appname:-},begintime=%X{begintime:-},endtime=%X{fin-X1-time:-}]-->
+                - %msg%n
+            </pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${logPath}/error.%d.log
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="com.jw.sys.dao">
+        <level value="DEBUG"/>
+    </logger>
+    <logger name="com.jw.order.dao">
+        <level value="DEBUG"/>
+    </logger>
+    <logger name="com.jw.terminal.dao">
+        <level value="DEBUG"/>
+    </logger>
+    <logger name="com.jw.product.dao">
+        <level value="DEBUG"/>
+    </logger>
+    <logger name="com.jw.channel.dao">
+        <level value="DEBUG"/>
+    </logger>
+    <logger name="com.jw.display.dao">
+        <level value="DEBUG"/>
+    </logger>
+    <logger name="com.jw.ticket.dao">
+        <level value="DEBUG"/>
+    </logger>
+
+    <!--root：整个项目都适用-->
+    <root level="info">
+        <appender-ref ref="consoleLog" />
+        <appender-ref ref="fileInfoLog" />
+        <appender-ref ref="fileErrorLog" />
+    </root>
+
+</configuration>

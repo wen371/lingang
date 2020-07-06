@@ -1,0 +1,32 @@
+ @layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+	<div class="ibox-content">
+		<div class="form-horizontal" id="roleInfoForm">
+		
+			<input type="hidden" id="id" value="${role.id}">
+
+			<div class="row">
+				<div class="col-sm-6 b-r">
+					<#input id="name" name="角色名称" underline="true" value="${role.name}"/>
+				</div>
+				<div class="col-sm-6">
+					<#input id="tips" name="别名" underline="true" value="${role.tips}"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 b-r">
+					<#input id="scenicName" name="所属景区" readonly="readonly" underline="true" value="${role.scenicName}"/>
+				</div>
+			</div>
+			<div class="row btn-group-m-t">
+				<div style="text-align: center">
+					<#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="RolInfoDlg.editSubmit()"/>
+					<#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="RolInfoDlg.close()"/>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<script src="${basePath}/static/modular/system/role/role_info.js"></script>
+@}

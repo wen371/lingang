@@ -1,0 +1,1030 @@
+@charset "utf-8";
+ul li{
+	list-style-type: none;
+}
+ol, ul{
+	padding-left: 0;
+	margin-bottom: 0;
+}
+p{
+	margin: 0;
+}
+select,input[type='radio']{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.indexList{
+	float: left;
+	width: 100%;
+	display: table;
+	color: #fff;
+	background-color: #019689;
+	padding: 2px;
+	margin: 5px 0 12px 0;
+	box-sizing: border-box;
+	text-align: center;
+}
+.indexList >section {
+	display: table-cell;
+	height: 30px;
+	font-size: 14px;
+	line-height: 40px;
+	width: 14%;
+}
+.indexList>section.active {
+	color: #019689;
+	background-color: #fff;
+}
+.warLeft{
+	width: 100%;
+	float: left;
+}
+.warLeft button{
+	padding-left: 22px;
+	background: url(../../img/product/ioc1.png) no-repeat left 5px center;
+	background-size: 12px 12px;
+	background-color: #f8ac59;
+	font-size: 12px;
+}
+.tabox{
+	float: left;
+	padding-left: 0;
+	width: 100%;
+	margin-top: 12px;
+}
+.tabox li{
+	float: left;
+	list-style-type: none;
+	width: calc((100% - 53px) / 4);
+	margin: 0 15px 15px 0;
+	border: 1px solid #e0e0e0;
+	background-color: 100%;
+}
+.tabox li:nth-child(4n+4){
+	margin-right: 0;
+}
+.tabox li .information{
+	float: left;
+	width: 100%;
+}
+.tabox li .information img{
+	float: left;
+	width: 100%;
+	height: 150px;
+	padding: 4px 4px 0 4px;
+	box-sizing: border-box;
+}
+.tabox li .information .infoTest{
+	float: left;
+	width: 100%;
+	margin: 5px 0;
+	font-size: 14px;
+	color: #333333;
+	padding: 4px 4px 0 4px;
+	box-sizing: border-box;
+}
+.tabox li .information .infoTest span{
+	float: right;
+	color: #ef6d1b;
+	font-size: 10px;
+	border: 1px solid #ef6d1b;
+	padding: 0 2px;
+}
+.tabox li .information p{
+	color: #777777;
+	font-size: 8px;
+	float: left;
+	width: 100%;
+	margin-bottom: 1px;
+	padding: 0 4px;
+	box-sizing: border-box;
+}
+.tabox li .information p span{
+	color: #f12727;
+	font-size: 14px;
+	display: inline-block;
+	margin-right: 5px;
+}
+.tabox li .information .bdlTest{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-size: 13px;
+	color: #333333;
+	border-top: 1px solid #e0e0e0;
+	padding: 5px 0;
+	margin-top: 2px;
+}
+.pagination{
+	margin: 0;
+}
+.fixed-table-pagination{
+	text-align: center;
+}
+/*
+ * Insured
+ */
+.nav.nav-tabs li{
+	width: calc(100% / 6);
+	text-align: center;
+}
+.nav-tabs > li > a{
+	color: #666666;
+}
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+	border-color: #ffffff !important;
+	border-bottom: 1px solid #dddddd !important;
+	color: #eb6e36 !important;
+	background-color: #fff !important;
+}
+.nav-tabs > li.active > a{
+	border-color: #ffffff;
+	border-bottom: 1px solid #eb6e36;
+	color: #eb6e36;
+}
+.container-fluid{
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	background-color: #fff;
+	border-top: 5px solid #fff;
+	border-bottom: 10px solid #fff;
+	z-index: 999;
+}
+#navbar-example2{
+	margin-bottom: 0;
+}
+.mdoInfo{
+	float: left;
+	width: 100%;
+	padding: 0 20px;
+	box-sizing: border-box;
+	margin-bottom: 25px;
+}
+/*基本信息*/
+.title{
+	float: left;
+	width: 100%;
+}
+.title img{
+	float: left;
+	width: 110px;
+	height: 24px;
+}
+.title .round{
+	float: right;
+	width: 50px;
+	height: 50px;
+	background: url(../../img/product/garden.png) no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+	color: #fff;
+	margin-top: -10px;
+}
+.title .round img{
+	width: 10px;
+	height: 7px;
+	margin: 11px 0 1px 20px;
+}
+.title .round .sqTest{
+	float: left;
+	font-size: 8px;
+	text-align:center;
+	width: 100%;
+}
+.messageInfo{
+	float: left;
+	width: 100%;
+}
+.messageInfo .zIoc{
+	width: 350px;
+	height: 232px;
+	float: left;
+	margin-right: 15px;
+}
+.messageInfo .insurance{
+	float: left;
+	width: calc(100% - 365px);
+	padding: 2px 0;
+}
+.messageInfo .insurance .inTest{
+	float: left;
+	width: 100%;
+	font-size: 20px;
+	color: #333333;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #f0f0f0;
+}
+.messageInfo .insurance .inTest img{
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+}
+.messageInfo .insurance .inTest p{
+	float: right;
+	color: #de1b1b;
+	font-size: 15px;
+	margin-top: 5px;
+}
+.messageInfo .insurance .inTest p span{
+	color: #09509e;
+}
+.messageInfo .insurance .rowDiv{
+	float: right;
+	width: 100%;
+	font-size: 13px;
+	color: #333333;
+	padding: 8px 0;
+	border-bottom: 1px solid #f0f0f0;
+}
+.messageInfo .insurance .rowDiv .leftTest{
+	float: left;
+}
+.messageInfo .insurance .rowDiv .rightTest{
+	float: right;
+}
+.messageInfo .insurance .rowDiv .leftTest #beginTime,
+.messageInfo .insurance .rowDiv .rightTest #endTime{
+	background: url(../../img/product/ioc4.png) no-repeat right 8px center;
+	background-size: 16px 14px;
+	width: 175px;
+	border: 1px solid #d7d7d7;
+	padding: 5px 33px 5px 12px;
+	box-sizing: border-box;
+}
+.messageInfo .Introduction{
+	float: left;
+	width: 100%;
+	font-size: 13px;
+	border: 1px dashed #fdb797;
+	background-color: #fff8f5;
+	padding: 6px 11px;
+	box-sizing: border-box;
+	margin-top: 5px;
+}
+.messageInfo .Introduction p{
+	padding-left: 14px;
+}
+/*保障方案*/
+.title .cpCode{
+	float: left;
+	font-size: 10px;
+	color: #eb6e36;
+	margin: 10px 0 0 4px;
+}
+.messageInfo2 .bfList{
+	float: left;
+	width: 100%;
+	margin: 18px 0;
+	padding-left: calc((100% - 510px) / 2);
+	box-sizing: border-box;
+}
+.messageInfo2 .bfList ul{
+	float: left;
+	padding-left: 0;
+}
+.bfactive{
+	background-color: #ed6d2b;
+	color: #fff !important;
+}
+.messageInfo2 .bfList ul li{
+	padding: 0px 10px;
+	height: 40px;
+	border: 1px solid #ed6d2b;
+	color: #ed6d2b;
+	font-size: 14px;
+	text-align: center;
+	line-height: 40px;
+	float: left;
+	border-radius: 4px;
+	margin-right: 20px;
+	cursor:pointer;
+}
+.messageInfo2 .bfList ul li:last-child{
+	margin-right: 0;
+}
+.version{
+	width: 100%;
+	float: left;
+	padding-left: calc((100% - 800px) / 2);
+	box-sizing: border-box;
+}
+.version .verInfo{
+	width: 800px;
+	overflow: hidden;
+	border-radius: 4px;
+	border: 1px solid #fa6520;
+}
+.version .verInfo table{
+	width:100%;
+	text-align: center;
+	word-wrap:break-word;
+	word-break:break-all;
+	border-collapse: collapse;
+}
+.version .verInfo table tr{
+	border-bottom: 1px solid #fa6520;
+}
+.version .verInfo table tr:last-child{
+	border-bottom: 0;
+}
+.version .verInfo table tr:first-child{
+	background-image: -webkit-gradient(linear,0% 35%, 0% 100%, from(#FA6521), to(#f08c31), color-stop(0.5,#F47B29));
+	border-bottom: 0;
+}
+.version .verInfo table tr:first-child td{
+	border-right: 0;
+	color: #fff;
+	padding: 17px 0;
+}
+.version .verInfo table tr td {
+	padding: 13px 0;
+	word-wrap: break-word;
+	font-size: 14px;
+	color: #333333;
+	border-right: 1px solid #fa6520;
+}
+.version .verInfo table tr td:last-child{
+	border-right: 0;
+}
+.bfCalculate{
+	width: 100%;
+	float: left;
+	padding-left:calc((100% - 800px) / 2);
+}
+.bfCalculate .bfCalTest{
+	width: 800px;
+	float: left;
+	text-align: center;
+	font-size: 16px;
+	color: #ed6d2b;
+	background: url(../../img/product/xian.png) no-repeat center;
+	background-size: 300px 2px;
+	margin: 18px 0;
+}
+.bfCalculate .rowDiv{
+	width: 800px;
+	float: left;
+	margin-bottom: 15px;
+}
+.bfCalculate .rowDiv .leftTest,
+.bfCalculate .rowDiv .rightTest{
+	width: 400px;
+	float: left;
+	font-size: 14px;
+}
+.bfCalculate .rowDiv .rightTest{
+	float: right;
+}
+.bfCalculate .rowDiv .leftTest .bt-Test,
+.bfCalculate .rowDiv .rightTest .bt-Test{
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	color: #ed6d2b;
+	width: 80px;
+}
+.bfCalculate .rowDiv .leftTest select{
+	float: left;
+	width: 200px;
+	height: 30px;
+	color: #333333;
+	font-size: 13px;
+	border: 1px solid #ed6d2b;
+	padding-left: 10px;
+	box-sizing: border-box;
+	background: url(../../img/product/ioc7.png) no-repeat right;
+	background-size: 30px 30px;
+}
+.bfCalculate .rowDiv .leftTest .bzDate{
+	float: left;
+	width: 200px;
+	height: 30px;
+	color: #333333;
+	font-size: 13px;
+	border: 1px solid #ed6d2b;
+	text-indent: 10px;
+}
+.bfCalculate .rowDiv .rightTest label{
+	float: left;
+}
+.bfCalculate .rowDiv .rightTest label input[type='radio']{
+	float: left;
+}
+.bfCalculate .rowDiv .rightTest label span{
+	display: inherit;
+	width: 35px;
+	height: 30px;
+	text-align: center;
+	color: #fff;
+	line-height: 30px;
+	font-size: 13px;
+	color: #333333;
+	border: 1px solid #ed6d2b;
+	margin-right: 20px;
+}
+.bfCalculate .rowDiv .rightTest label input[type='radio']:checked+span{
+	background-color: #ed6d2b;
+	color: #fff;
+}
+.bfCalculate .rowDiv .rightTest .age{
+	width: 180px;
+	height: 30px;
+	border: 1px solid #ed6d2b;
+	text-indent: 10px;
+	color: #333333;
+	font-size: 13px;
+	margin-right: 5px;
+}
+.bfCalculate .rowDiv .rightTest input[type="button"]{
+	float: left;
+	width: 90px;
+	height: 35px;
+	border: 0;
+	background-color: #ed6d2b;
+	color: #fff;
+	font-size: 13px;
+}
+.bfCalculate .rowDiv .rightTest .moneyTest{
+	float: left;
+	height: 35px;
+	border: 1px solid #ed6d2b;
+	width: 200px;
+	line-height: 35px;
+	text-align: center;
+	font-size: 16px;
+	color: #ed6d2b;
+}
+/*图片*/
+.messageInfoIoc{
+	float: left;
+	width: 100%;
+	padding-left: calc((100% - 800px) / 2);
+	box-sizing: border-box;
+}
+.messageInfoIoc img{
+	width: 800px;
+}
+/*投保信息录入*/
+.messageInfo3{
+	float: left;
+	width: 100%;
+	padding: 0 calc((100% - 800px) / 2);
+	box-sizing: border-box;
+}
+.messageInfo3 .leftMation{
+	float: left;
+	width: 100%;
+}
+.messageInfo3 .rightMation{
+	float: left;
+	width: 100%;
+}
+.messageInfo3 .leftMation .tbInfo,
+.messageInfo3 .rightMation .tbInfo{
+	float: left;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.enterTitle{
+	float: left;
+	color: #eb6e36;
+	font-size: 16px;
+	width: 100%;
+	margin-bottom: 14px;
+	font-weight: bolder;
+}
+.enterTitle i{
+	float: left;
+	width: 3px;
+	height: 12px;
+	display: inline-block;
+	background-color: #eb6e36;
+	margin: 5px 5px 0 0;
+}
+.tbInfo .ryInfo{
+	float: left;
+	width: 100%;
+	margin: 18px 0;
+	padding-left: calc((100% - 280px) / 2);
+	box-sizing: border-box;
+}
+.tbInfo .ryInfo ul li{
+	width: 120px;
+	height: 34px;
+	border: 1px solid #ed6d2b;
+	color: #ed6d2b;
+	font-size: 14px;
+	text-align: center;
+	line-height: 34px;
+	float: left;
+	border-radius: 4px;
+	margin-right: 40px;
+	cursor: pointer;
+}
+.universal,
+.universalInfo,
+.benefitInfo,
+.universalInfo2{
+	float: left;
+	width: 100%;
+	margin: 0 0 14px 10px;
+}
+.universal ul li,
+.universalInfo ul li,
+.universalInfo2 ul li{
+	float: left;
+	width: 50%;
+	height: 42px;
+	margin-bottom: 11px;
+	display: table;
+	overflow: hidden;
+}
+.universalInfo3 ul li{
+	float: left;
+	width: 50%;
+	height: 42px;
+	margin-bottom: 11px;
+	display: table;
+	overflow: hidden;
+}
+.effectDateDiv .uTest,
+.universal ul li .uTest,
+.universalInfo ul li .uTest,
+.tbrBox .uTest,
+.syrBox .uTest,
+.universalInfo2 ul li .uTest{
+	font-size: 14px;
+	color: #333333;
+	float: left;
+	width: 100px;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 6px 0;
+}
+.universalInfo3 ul li .uTest{
+	font-size: 8px;
+	color: #333333;
+	float: left;
+	width: 100px;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 6px 0;
+}
+.universal ul li input[type="text"],
+.universalInfo ul li input[type="text"],
+.universalInfo2 ul li input[type="text"]{
+	float: left;
+	border: 0;
+	border: 1px solid #b3b3b3;
+	background-color: #fff;
+	width: 280px;
+	height: 30px;
+	font-size: 8px;
+	color: #333333;
+	display: table-cell;
+	vertical-align: middle;
+	text-indent: 10px;
+}
+.effectDateDiv input[type="text"],
+.universalInfo3 ul li input[type="text"]{
+	float: left;
+	border: 0;
+	border: 1px solid #b3b3b3;
+	background-color: #fff;
+	width: 280px;
+	height: 30px;
+	font-size: 8px;
+	color: #333333;
+	display: table-cell;
+	vertical-align: middle;
+	text-indent: 10px;
+}
+.universal ul li select,
+.universalInfo ul li select,
+.universalInfo2 ul li select{
+	float: left;
+	border: 0;
+	border: 1px solid #b3b3b3;
+	width: 280px;
+	height: 30px;
+	font-size: 8px;
+	color: #333333;
+	display: table-cell;
+	vertical-align: middle;
+	text-indent: 10px;
+	background: url(../../img/product/ioc6.png) no-repeat right 5px center;
+	background-size: 10px 5px;
+	background-color: #fff;
+	padding-right: 20px;
+	box-sizing: border-box;
+}
+.universalInfo3 ul li select{
+	float: left;
+	border: 0;
+	border: 1px solid #b3b3b3;
+	width: 280px;
+	height: 30px;
+	font-size: 8px;
+	color: #333333;
+	display: table-cell;
+	vertical-align: middle;
+	text-indent: 10px;
+	background: url(../../img/product/ioc6.png) no-repeat right 5px center;
+	background-size: 10px 5px;
+	background-color: #fff;
+	padding-right: 20px;
+	box-sizing: border-box;
+}
+.universal ul li label,
+.universalInfo ul li label,
+.tbrBox label,
+.syrBox label,
+.universalInfo2 ul li label{
+	float: left;
+	font-size: 8px;
+	margin: 6px 18px 0 0;
+}
+.universalInfo3 ul li label{
+	float: left;
+	font-size: 8px;
+	margin: 6px 18px 0 0;
+}
+.universal ul li label input[type=radio],
+.universalInfo ul li label input[type=radio],
+.tbrBox label input[type=radio],
+.syrBox label input[type=radio],
+.universalInfo2 ul li label input[type=radio]{
+	float: left;
+	width: 10px;
+	height: 10px;
+	background:url(../../img/product/radio.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+	border: none;
+	border-radius: 0;
+	margin-right: 5px;
+}
+.universalInfo3 ul li label input[type=radio]{
+	float: left;
+	width: 10px;
+	height: 10px;
+	background:url(../../img/product/radio.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+	border: none;
+	border-radius: 0;
+	margin-right: 5px;
+}
+.universal ul li label input[type=radio]:checked,
+.universalInfo ul li label input[type=radio]:checked,
+.tbrBox label input[type=radio]:checked,
+.syrBox label input[type=radio]:checked,
+.universalInfo2 ul li label input[type=radio]:checked{
+	float: left;
+	width: 10px;
+	height: 10px;
+	background:url(../../img/product/radio2.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+	border: none;
+	border-radius: 0;
+	margin-right: 5px;
+}
+.universalInfo3 ul li label input[type=radio]:checked{
+	float: left;
+	width: 10px;
+	height: 10px;
+	background:url(../../img/product/radio2.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+	border: none;
+	border-radius: 0;
+	margin-right: 5px;
+}
+.universal ul li label input[type=radio]:checked+span,
+.universalInfo ul li label input[type=radio]:checked+span,
+.universalInfo2 ul li label input[type=radio]:checked+span{
+	color: #eb6e36;
+}
+.universalInfo3 ul li label input[type=radio]:checked+span{
+	color: #eb6e36;
+}
+.effectDateDiv .dateInput,
+.universal ul li .dateInput,
+.universalInfo ul li .dateInput,
+.universalInfo2 ul li .dateInput{
+	background: url(../../img/product/ioc4.png) no-repeat right 8px center;
+	background-size: 16px 14px;
+	padding-right: 33px;
+	box-sizing: border-box;
+}
+.universalInfo3 ul li .dateInput{
+	background: url(../../img/product/ioc4.png) no-repeat right 8px center;
+	background-size: 16px 14px;
+	padding-right: 33px;
+	box-sizing: border-box;
+}
+.universal ul li textarea,
+.universalInfo ul li textarea,
+.universalInfo2 ul li textarea{
+	float: left;
+	width: 280px;
+	border: 1px solid #b3b3b3;
+	font-size: 8px;
+	color: #333333;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 4px 10px;
+	height: 80px;
+	resize: none;
+}
+.universalInfo3 ul li textarea{
+	float: left;
+	width: 280px;
+	border: 1px solid #b3b3b3;
+	font-size: 8px;
+	color: #333333;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 4px 10px;
+	height: 80px;
+	resize: none;
+}
+.universalInfo .digitalIoc{
+	float: left;
+	width: 100%;
+	color: #eb6e36;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+.universalInfo .digitalIoc img{
+	float: left;
+	width: 12px;
+	height: 15px;
+	margin: 2px 5px 0 0;
+}
+.universalInfo a,
+.universalInfo2 a{
+	float: right;
+	color: #eb3636;
+	font-size: 10px;
+	margin-top: 3px;
+	margin: 3px 20px 0 0;
+}
+.universalInfo3 a{
+	float: right;
+	color: #eb3636;
+	font-size: 10px;
+	margin-top: 3px;
+	margin: 3px 20px 0 0;
+}
+.universalInfo a img,
+.universalInfo2 a img{
+	float: right;
+	width: 12px !important;
+	height: 13px !important;
+}
+.universalInfo3 a img{
+	float: right;
+	width: 12px !important;
+	height: 13px !important;
+}
+.tbrBox{
+	float: left;
+	width: 340px;
+	margin: 0 0 10px 10px;
+}
+.syrBox{
+	float: left;
+	width: 340px;
+	margin: 0 0 10px 10px;
+}
+
+/*被保险人*/
+.enterTitle button{
+	float: right;
+	padding-left: 22px;
+	background: url(../../img/product/ioc1.png) no-repeat left 5px center;
+	background-size: 12px 12px;
+	background-color: #f8ac59;
+	font-size: 12px;
+	margin: -5px 12px 0 0;
+}
+.enterTitle span{
+	font-size: 10px;
+	color: #eb6e36;
+	margin-left: 5px;
+}
+.tbInfo .sameInsured{
+	float: left;
+	width: 290px;
+	margin: 0 0 14px 10px;
+	font-size: 8px;
+	color: #333333;
+}
+.tbInfo .bomb{
+	float: left;
+	width: 100%;
+}
+.tbInfo .bomb a{
+	text-decoration: underline;
+	font-size: 13px;
+	margin-right: 12px;
+	color: #333333;
+}
+.tbInfo .bomb label{
+	float: left;
+	width: 100%;
+	font-size: 13px;
+	color: #333333;
+	margin-top: 10px;
+}
+.tbInfo .bomb label input[type='checkbox']{
+	-webkit-appearance: none;
+	float: left;
+	width: 13px;
+	height: 13px;
+	background: url(../../img/product/checkbox.png)  no-repeat center center;;
+	background-size: 100% 100%;
+	margin: 3px 5px 0 0;
+	outline: none;
+	border: none;
+	border-radius: 0;
+}
+.tbInfo .bomb label input[type='checkbox']:checked{
+	-webkit-appearance: none;
+	float: left;
+	width: 13px;
+	height: 13px;
+	background: url(../../img/product/checkbox2.png)  no-repeat center center;;
+	background-size: 100% 100%;
+	margin: 3px 5px 0 0;
+	outline: none;
+	border: none;
+	border-radius: 0;
+}
+
+.btn-add{
+	width: 310px;
+	color: #fff;
+	background-color: #eb6e36;
+	height: 40px;
+}
+.btn-add:hover,
+.btn-add:focus{
+	color: #fff;
+}
+
+.gendBtn{
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
+	text-align: center;
+}
+.gendBtn .btn-add{
+	margin-right: 20px;
+}
+
+.centMation{
+	float: left;
+	width: 100%;
+	text-align: center;
+	margin: 25px 0;
+}
+.centMation input{
+	width: 310px;
+	height: 40px;
+	margin-bottom: 13px;
+	border: 1px solid #ed6d2b;
+	border-radius: 2px;
+	font-size: 13px;
+	background-color: #fff;
+	color: #ed6d2b;
+	margin-right: 20px;
+}
+.centMation input:last-child{
+	background-color: #ed6d2b;
+	color: #fff;
+}
+/*受益人*/
+.universalInfo2 .digitalIoc{
+	float: left;
+	width: 100%;
+	color: #eb6e36;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+.universalInfo2 .digitalIoc img{
+	float: left;
+	width: 17px;
+	height: 16px;
+	margin: 2px 5px 0 0;
+}
+.enterTitle label{
+	float: right;
+	font-size: 8px;
+	margin: 1px 20px 0 0;
+	color:#676a6c;
+}
+.enterTitle label input[type="radio"]{
+	width: 10px;
+	height: 10px;
+	background: url(../../img/product/radio.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+	border: none;
+	border-radius: 0;
+	margin-right: 5px;
+}
+.enterTitle label input[type="radio"]:checked{
+	width: 10px;
+	height: 10px;
+	background: url(../../img/product/radio2.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+	border: none;
+	border-radius: 0;
+	margin-right: 5px;
+}
+.enterTitle label input[type="radio"]:checked+span{
+	color: #eb6e36;
+}
+
+.periodInput{
+	width: 153px;
+	height: 30px;
+	border: 1px solid #d7d7d7;
+	text-indent: 10px;
+	color: #333333;
+	font-size: 13px;
+	margin-right: 5px;
+}
+
+.periodSelect{
+	width: 155px;
+	height: 30px;
+	color: #333333;
+	font-size: 13px;
+	border: 1px solid #d7d7d7;
+	padding-left: 10px;
+	box-sizing: border-box;
+	background: url(../../img/product/ioc7.png) no-repeat right;
+	background-size: 30px 30px;
+}
+
+/**批单*/
+.universalInfo3 .digitalIoc{
+	float: left;
+	width: 100%;
+	color: #eb6e36;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+.universalInfo3 .digitalIoc img{
+	float: left;
+	width: 17px;
+	height: 16px;
+	margin: 2px 5px 0 0;
+}
+.universalInfo3 .digitalIoc label{
+	float: right;
+	font-size: 8px;
+	margin: 1px 20px 0 0;
+	color:#676a6c;
+}
+.universalInfo3 .digitalIoc label input[type="radio"]{
+	width: 10px;
+	height: 10px;
+	background: url(../images/radio.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+	border: none;
+	border-radius: 0;
+	margin-right: 5px;
+}
+.universalInfo3 .digitalIoc label input[type="radio"]:checked{
+	width: 10px;
+	height: 10px;
+	background: url(../images/radio2.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+	border: none;
+	border-radius: 0;
+	margin-right: 5px;
+}
+.universalInfo3 .digitalIoc label input[type="radio"]:checked+span{
+	color: #eb6e36;
+}
+.correctionBtn{
+	float: right;
+	background-size: 12px 12px;
+	background-color: #f8ac59;
+	font-size: 12px;
+	margin: -5px 12px 0 0;
+}
+.effectDateDiv{
+	margin: 0px 0px 14px 10px;
+}

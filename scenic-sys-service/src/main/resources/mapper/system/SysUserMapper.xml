@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jw.sys.dao.SysUserDao">
+    <!-- ResultMap定义-->
+    <resultMap id="BaseResultMap" type="com.jw.sys.bean.entity.SysUser">
+        <id column="id" property="id"/>
+        <result column="account" property="account"/>
+        <result column="password" property="password"/>
+        <result column="salt" property="salt"/>
+        <result column="history_pass" property="historyPass"/>
+        <result column="name" property="name"/>
+        <result column="idNo" property="idNo"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="sex"/>
+        <result column="email" property="email"/>
+        <result column="phone" property="phone"/>
+        <result column="agent_code" property="agentCode"/>
+        <result column="dept_code" property="deptCode"/>
+        <result column="org_code" property="orgCode"/>
+        <result column="network_code" property="networkCode"/>
+        <result column="inner_code" property="innerCode"/>
+      <!--  <result column="dept_id" property="deptId"/>-->
+        <result column="scenic_id" property="scenicId"/>
+        <result column="status" property="status"/>
+        <result column="type" property="type"/>
+        <result column="creator" property="creator"/>
+        <result column="create_time" property="createTime"/>
+        <result column="mender" property="mender"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="error_login" property="errorLogin"/>
+    </resultMap>
+
+    <!-- 通用的查询SQL字段-->
+    <sql id="All_Column_List">
+		id,account,password,salt,history_pass,name,idNo,birthday,sex,email,phone,agent_code,dept_code,org_code,network_code,inner_code,
+		scenic_id,status,type,creator,create_time,mender,modify_time,is_delete,error_login
+	</sql>
+
+    <!-- insertSQL字段-->
+    <sql id="Insert_Column_List">
+		account,password,salt,history_pass,name,idNo,birthday,sex,email,phone,agent_code,dept_code,org_code,network_code,inner_code,scenic_id,status,type,
+		creator,create_time,mender,modify_time,is_delete,error_login
+	</sql>
+
+    <!--根据Id查询记录-->
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT
+        <include refid="All_Column_List"/>
+        FROM sys_user WHERE id=#{id}
+    </select>
+
+    <!--根据给定的记录查询一批记录-->
+    <select id="selectByIds" resultMap="BaseResultMap">
+        SELECT
+        <include refid="All_Column_List"/>
+        FROM sys_user
+        WHERE id in
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <!--新增记录-->
+    <insert id="insert" parameterType="com.jw.sys.bean.entity.SysUser" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO sys_user(
+        account,password,salt,history_pass,name,idNo,birthday,sex,email,phone,agent_code,dept_code,org_code,network_code,inner_code,
+        scenic_id,status,type,creator,create_time,mender,modify_time,is_delete,error_login
+        ) VALUES (
+        #{account},
+        #{password},
+        #{salt},#{historyPass},
+        #{name},
+        #{idNo},
+        #{birthday},
+        #{sex},
+        #{email},
+        #{phone},
+        #{agentCode},
+        #{deptCode},
+        #{orgCode},
+        #{networkCode},
+        #{innerCode},
+        #{scenicId},
+        #{status},
+        #{type},
+        #{creator},
+        NOW(),
+        #{mender},
+        NOW(),
+        '0', #{errorLogin}
+        )
+    </insert>
+
+    <!--新增记录，只匹配有值的字段-->
+    <insert id="insertSelective" parameterType="com.jw.sys.bean.entity.SysUser">
+        INSERT INTO sys_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="account !=null">account,</if>
+            <if test="password !=null">password,</if>
+            <if test="salt !=null">salt,</if>
+            <if test="name !=null">name,</if>
+            <if test="idNo !=null">idNo,</if>
+            <if test="birthday !=null">birthday,</if>
+            <if test="sex !=null">sex,</if>
+            <if test="email !=null">email,</if>
+            <if test="phone !=null">phone,</if>
+            <if test="agentCode !=null">agent_code,</if>
+            <if test="deptCode !=null">dept_code,</if>
+            <if test="orgCode !=null">org_code,</if>
+            <if test="networkCode !=null">network_code,</if>
+            <if test="scenicId !=null">scenic_id,</if>
+            <if test="status !=null">status,</if>
+            <if test="type !=null">type,</if>
+            <if test="creator !=null">creator,</if>
+            create_time,
+            <if test="mender !=null">mender,</if>
+            modify_time,
+            <if test="isDelete !=null">is_delete,</if>
+            <if test="errorLogin !=null">error_login,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="account !=null">#{account},</if>
+            <if test="password !=null">#{password},</if>
+            <if test="salt !=null">#{salt},</if>
+            <if test="name !=null">#{name},</if>
+            <if test="idNo !=null">#{idNo},</if>
+            <if test="birthday !=null">#{birthday},</if>
+            <if test="sex !=null">#{sex},</if>
+            <if test="email !=null">#{email},</if>
+            <if test="phone !=null">#{phone},</if>
+            <if test="agentCode !=null">#{agentCode},</if>
+            <if test="deptCode !=null">#{deptCode},</if>
+            <if test="orgCode !=null">#{orgCode},</if>
+            <if test="networkCode !=null">#{networkCode},</if>
+            <if test="scenicId !=null">#{scenicId},</if>
+            <if test="status !=null">#{status},</if>
+            <if test="type !=null">#{type},</if>
+            <if test="creator !=null">#{creator},</if>
+            NOW(),
+            <if test="mender !=null">#{mender},</if>
+            NOW(),
+            <if test="isDelete !=null">#{isDelete},</if>
+            <if test="errorLogin !=null">#{errorLogin},</if>
+        </trim>
+    </insert>
+
+    <!--根据Id更新记录-->
+    <update id="updateById" parameterType="com.jw.sys.bean.entity.SysUser">
+        UPDATE sys_user SET
+        account = #{account},
+        password = #{password},
+        salt = #{salt},
+         history_pass = #{historyPass},
+        name = #{name},
+        idNo = #{idNo},
+        birthday = #{birthday},
+        sex = #{sex},
+        email = #{email},
+        phone = #{phone},
+        agent_code = #{agentCode},
+        dept_code = #{deptCode},
+        org_code = #{orgCode},
+        network_code = #{networkCode},
+        scenic_id = #{scenicId},
+        status = #{status},
+        type = #{type},
+        creator = #{creator},
+        create_time = #{createTime},
+        mender = #{mender},
+        modify_time = NOW(),
+        is_delete = #{isDelete},
+        error_login = #{errorLogin}
+        WHERE id = #{id}
+    </update>
+
+    <!--根据Id更新记录,只更新有值的字段-->
+    <update id="updateSelectiveById" parameterType="com.jw.sys.bean.entity.SysUser">
+        UPDATE sys_user
+        <set>
+            <if test="account != null">account = #{account},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="salt != null">salt = #{salt},</if>
+            <if test="historyPass != null">history_pass = #{historyPass},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="idNo != null">idNo = #{idNo},</if>
+            <if test="birthday != null">birthday = #{birthday},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="agentCode !=null">agent_code = #{agentCode},</if>
+            <if test="deptCode !=null">dept_code = #{deptCode},</if>
+            <if test="orgCode !=null">org_code = #{orgCode},</if>
+            <if test="networkCode !=null">network_code = #{networkCode},</if>
+            <if test="innerCode !=null">inner_code = #{innerCode},</if>
+            <if test="scenicId != null">scenic_id = #{scenicId},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="creator != null">creator = #{creator},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="mender != null">mender = #{mender},</if>
+            modify_time = NOW(),
+            <if test="isDelete != null">is_delete = #{isDelete},</if>
+            <if test="errorLogin != null">error_login = #{errorLogin},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!--根据Id删除记录-->
+    <!--<delete id="deleteById">
+		DELETE FROM sys_user WHERE id =#{id}
+	</delete>-->
+
+    <!--根据Id删除一批记录-->
+    <delete id="deleteByIds">
+        DELETE FROM sys_user WHERE id in
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!-- 以上为工具生成，公用，以下为业务逻辑，专用 -->
+    <select id="selectUsers" resultMap="BaseResultMap">
+        select
+        <include refid="All_Column_List"/>
+        from sys_user
+        where is_delete=0
+        <if test="name != null and name != ''">
+            and (phone like CONCAT('%',#{name},'%')
+            or account like CONCAT('%',#{name},'%')
+            or name like CONCAT('%',#{name},'%'))
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            and create_time > CONCAT(#{beginTime},' 00:00:00')
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and create_time &lt; CONCAT(#{endTime},' 23:59:59')
+        </if>
+        <if test="pageSize != null">
+            limit #{num},#{pageSize}
+        </if>
+    </select>
+
+
+    <select id="selectSubByInnerCode" resultMap="BaseResultMap">
+        select
+        <include refid="All_Column_List"/>
+        from sys_user
+        where is_delete=0
+        <if test="name != null and name != ''">
+            and (phone like CONCAT('%',#{name},'%')
+            or account like CONCAT('%',#{name},'%')
+            or name like CONCAT('%',#{name},'%'))
+        </if>
+        <if test='scenicId != "0"'>
+            and scenic_id = #{scenicId}
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            and create_time > CONCAT(#{beginTime},' 00:00:00')
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and create_time &lt; CONCAT(#{endTime},' 23:59:59')
+        </if>
+        ORDER  BY create_time DESC
+        <if test="pageSize != null">
+            limit #{num},#{pageSize}
+        </if>
+    </select>
+
+    <select id="selectSubWPUsers" resultMap="BaseResultMap">
+        select
+        <include refid="All_Column_List"/>
+        from sys_user
+        where is_delete=0 and agent_code=#{agentCode}
+        <if test="name != null and name != ''">
+            and (phone like CONCAT('%',#{name},'%')
+            or account like CONCAT('%',#{name},'%')
+            or name like CONCAT('%',#{name},'%'))
+        </if>
+        and network_code IN
+        <foreach collection="list" index="index" item="i" open="(" separator="," close=")">
+            #{i}
+        </foreach>
+        <if test="beginTime != null and beginTime != ''">
+            and create_time > CONCAT(#{beginTime},' 00:00:00')
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and create_time &lt; CONCAT(#{endTime},' 23:59:59')
+        </if>
+        <if test="pageSize != null">
+            limit #{num},#{pageSize}
+        </if>
+    </select>
+
+    <select id="countSubWPUsers" resultType="java.lang.Integer" >
+        select count(*)  from sys_user
+        where is_delete=0 and agent_code=#{agentCode}
+        <if test="name != null and name != ''">
+            and (phone like CONCAT('%',#{name},'%')
+            or account like CONCAT('%',#{name},'%')
+            or name like CONCAT('%',#{name},'%'))
+        </if>
+        and network_code IN
+        <foreach collection="list" index="index" item="i" open="(" separator="," close=")">
+            #{i}
+        </foreach>
+        <if test="beginTime != null and beginTime != ''">
+            and create_time > CONCAT(#{beginTime},' 00:00:00')
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and create_time &lt; CONCAT(#{endTime},' 23:59:59')
+        </if>
+    </select>
+
+    <select id="countSubByInnerCode" resultType="java.lang.Integer" >
+        select count(*)  from sys_user
+        where is_delete=0
+        <if test="name != null and name != ''">
+            and (phone like CONCAT('%',#{name},'%')
+            or account like CONCAT('%',#{name},'%')
+            or name like CONCAT('%',#{name},'%'))
+        </if>
+        <if test='scenicId != "0"'>
+            and scenic_id = #{scenicId}
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            and create_time > CONCAT(#{beginTime},' 00:00:00')
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and create_time &lt; CONCAT(#{endTime},' 23:59:59')
+        </if>
+    </select>
+
+
+    <select id="countUsers" resultType="java.lang.Integer" >
+        select count(*) from sys_user
+        where is_delete=0
+        <if test="name != null and name != ''">
+            and (phone like CONCAT('%',#{name},'%')
+            or account like CONCAT('%',#{name},'%')
+            or name like CONCAT('%',#{name},'%'))
+        </if>
+        <if test="beginTime != null and beginTime != '' and endTime != null and endTime != ''">
+            and (create_time between CONCAT(#{beginTime},' 00:00:00') and CONCAT(#{endTime},' 23:59:59'))
+        </if>
+    </select>
+
+    <update id="setStatusById">
+        update sys_user set status = #{status},
+        mender=#{mender},
+        modify_time=NOW(),
+        error_login=""
+        where id = #{userId}
+    </update>
+
+    <update id="updatePassWorderById" parameterType="com.jw.sys.bean.entity.SysUser">
+        update sys_user
+        set password = #{password},
+        salt = #{salt},
+        history_pass = #{historyPass},
+        mender=#{mender},
+        modify_time=NOW(),
+        status = #{status}
+        where id = #{id}
+    </update>
+
+    <update id="deleteById">
+        update sys_user
+        set modify_time=NOW(),
+        mender=#{mender},
+        is_delete=1
+        where id = #{userId}
+    </update>
+
+    <select id="getByAccount" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="All_Column_List"/>
+        from sys_user
+        where account = #{account}
+        AND is_delete=0 limit 0,1
+    </select>
+
+    <select id="getByAccountAndType" resultMap="BaseResultMap">
+        select
+        <include refid="All_Column_List"/>
+        from sys_user
+        where account = #{account}
+        AND is_delete=0 limit 0,1
+    </select>
+    <select id="getByAccountAndId" resultMap="BaseResultMap">
+        select
+        <include refid="All_Column_List"/>
+        from sys_user
+        where account = #{account} and id != #{id}
+        AND is_delete=0
+    </select>
+    <select id="getUserByInnerCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="All_Column_List"/>
+        from sys_user
+        where is_delete=0
+         AND agent_code = #{agentCode}
+        AND type=1
+        Limit 1
+    </select>
+
+    <select id="getAgentUser" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="All_Column_List"/>
+        from sys_user
+        where is_delete=0
+        AND agent_code = #{agentCode}
+        AND type=1
+        Limit 1
+    </select>
+
+    <update id="upUsrIsDeleteByAgenCode" >
+        update sys_user
+        set  is_delete = #{isDelete}
+        where agent_code = #{agentCode}
+    </update>
+
+    <select id="getUserByIdNoCount" resultType="java.lang.Integer" >
+        select count(*) from sys_user
+        where is_delete=0 and idNo=#{idno}
+    </select>
+
+    <select id="getCountByAccount" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(*) from sys_user where is_delete=0 and account = #{account}
+    </select>
+
+    <select id="getUserByIdNo" resultMap="BaseResultMap" >
+        select
+        <include refid="All_Column_List"/>
+        from sys_user
+        where is_delete=0 AND idNo = #{idNo}
+    </select>
+
+    <select id="selectByPhone" resultMap="BaseResultMap" >
+        select
+        <include refid="All_Column_List"/>
+        from sys_user
+        where is_delete=0 AND phone = #{phone}
+    </select>
+
+    <!--无条件查找sysUser里所有数据-->
+    <select id="findAllUsersList" resultMap="BaseResultMap">
+        select
+        id,account,mender
+        from sys_user
+    </select>
+</mapper>

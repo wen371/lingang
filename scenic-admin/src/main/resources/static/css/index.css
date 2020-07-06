@@ -1,0 +1,63 @@
+@charset "utf-8";
+body, div, ul, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { padding:0;margin:0; }
+ul,li{ list-style: none;list-style-type:none;}
+a{text-decoration: none;}
+html{
+	width: 100%;
+	height: 100%;
+	background: url(../img/bg1.png) no-repeat;
+	background-size: 100% 100%;
+}
+.logo{
+	margin-top: 129px;
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+.logo img{
+	width: 200px;
+	height: 52px;
+}
+.system{
+	float: left;
+	width:100%;
+	margin-top: 65px;
+}
+.system ul li{
+	width: 322px;
+	height: 111px;
+	background-color: rgba(15, 32, 49, 0.1);
+	color: #203040;
+	font-size: 20px;
+	margin-bottom: 48px;
+	position: relative;
+	line-height: 111px;
+	margin-left: calc((100% - 322px) / 2);
+}
+.system ul li .ioc1{
+	width: 23px;
+	height: 22px;
+	float: left;
+	margin: 45px 18px 0 22px;
+}
+.system ul li .ioc2{
+	width: 25px;
+	height: 24px;
+	float: left;
+	margin: 44px 17px 0 21px;
+}
+.system ul li span{
+	position: absolute;
+	bottom: 10px;
+	right: 14px;
+	color: #203040;
+	font-size: 12px;
+	line-height: 22px;
+}
+.system ul li span img{
+	float: right;
+	width: 10px;
+	height: 8px;
+	margin: 7px 0 0 5px;
+	border: 0;
+}

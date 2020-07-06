@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<script type="text/javascript" charset="utf-8">
+        window.UEDITOR_HOME_URL= '/common/ueditor/'; //一定要用这句话，否则你需要去ueditor.config.js修改路径的配置信息
+
+    </script>-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>顾村后台管理系统登录</title>
+    <link rel="stylesheet" href="${basePath}/static/css/index.css" />
+    <link rel="shortcut icon" href="${basePath}/static/favicon.ico">
+    <link href="${basePath}/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="${basePath}/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="${basePath}/static/css/animate.css" rel="stylesheet">
+    <link href="${basePath}/static/css/style.css?v=4.1.0" rel="stylesheet">
+
+
+    <script>if (window.top !== window.self) {
+        window.top.location = window.location;
+    }</script>
+    <script src="${basePath}/static/js/jquery.min.js?v=2.1.4"></script>
+    <script src="${basePath}/static/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="${basePath}/static/js/plugins/layer/layer.min.js"></script>
+    <script src="${basePath}/static/js/common/Feng.js"></script>
+    <style>
+        .btn-primary {
+            background-color: #0954a4;
+            border-color: #0954a4;
+            color: #FFFFFF;
+        }
+        .btn-primary:hover,
+        .btn-primary:focus,
+        .btn-primary:active,
+        .btn-primary.active{
+            background-color: #0954a4;
+            border-color: #0954a4;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body class="gray-bg logoBg">
+
+<div id="tianan" class="middle-box text-center loginscreen  animated fadeInDown">
+    <div style="padding: 100px 0px;">
+        <div>
+            <h3 class="logo-name">顾村后台管理系统</h3>
+        </div>
+        <br/>
+        <h4 style="color: red;">${tips!}</h4>
+        <form class="m-t" role="form" action="${basePath}/login" method="post">
+            <div class="form-group">
+                <input type="text" name="username" class="form-control" value="${username!}" placeholder="用户名" required="">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" value="${password!}" placeholder="密码" required="">
+            </div>
+            <input  name="type" style="display: none" value="0">
+            @if(kaptcha.getKaptchaOnOff() == true){
+            <div class="form-group" style="float: left;">
+                <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
+                    <input class="form-control" type="text" name="kaptcha" placeholder="验证码" required="">
+                </div>
+                <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
+                    <img src="${basePath}/kaptcha" id="kaptcha" width="100%" height="100%"/>
+                </div>
+            </div>
+            @}
+            <div class="form-group" style="float: left;">
+                <div class="checkbox" style="text-align: left">
+                    <label>
+                        <input type="checkbox" name="remember" style="margin-top: 2px;">记住我
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
+            </p>
+        </form>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#kaptcha").on('click', function () {
+            $("#kaptcha").attr('src', '${basePath}/kaptcha?' + Math.floor(Math.random() * 100)).fadeIn();
+        });
+        $("#kaptcha").attr('src', '${basePath}/kaptcha?' + Math.floor(Math.random() * 100)).fadeIn();
+    });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="adminInfoForm">
+            <input style="display: none" id="id" value="${user.id}">
+            <input type="hidden" id="sexValue" value="${user.sex}">
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <#input id="account" name="账户" underline="true" value="${user.account}"  />
+                    <#input id="name" name="真实姓名" underline="true"  value="${user.name}"/>
+                    <#input id="idNo" name="身份证号" underline="true" maxlength="18"  value="${user.idNo}"/>
+                    <#input id="email" name="邮箱" underline="true" value="${user.email}"/>
+                </div>
+                <div class="col-sm-6">
+                    <#input id="birthday" name="出生日期" underline="true" type="date" value="${user.birthday}"
+                            clickFun="laydate({istime: false, format: 'YYYY-MM-DD'})"/>
+                    <#input id="scenicName" name="所属景区" underline="true"  readonly="readonly"  value="${user.scenicName}"/>
+                    <#input id="phone" name="手机号" underline="true" maxlength="11" value="${user.phone}"/>
+                    <#select id="sex" name="性别" underline="true">
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                    </#select>
+
+                </div>
+            </div>
+            <div class="row btn-group-m-t">
+                <div style="text-align: center">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="AdminInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="AdminInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${basePath}/static/js/card.js"></script>
+<script src="${basePath}/static/modular/system/enterpriseAdmin/admin_info.js"></script>
+@}

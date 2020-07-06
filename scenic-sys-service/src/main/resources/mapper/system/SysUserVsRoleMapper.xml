@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jw.sys.dao.SysUserVsRoleDao">
+    <!-- ResultMap定义-->
+    <resultMap id="BaseResultMap" type="com.jw.sys.bean.entity.SysUserVsRole">
+        <id column="id" property="id"/>
+        <result column="sys_user_id" property="sysUserId"/>
+        <result column="sys_role_id" property="sysRoleId"/>
+        <result column="creator" property="creator"/>
+        <result column="create_time" property="createTime"/>
+        <result column="mender" property="mender"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="is_delete" property="isDelete"/>
+    </resultMap>
+
+    <!-- 通用的查询SQL字段-->
+    <sql id="All_Column_List">
+		id,sys_user_id,sys_role_id,creator,create_time,mender,modify_time,is_delete
+	</sql>
+
+    <!-- insertSQL字段-->
+    <sql id="Insert_Column_List">
+		sys_user_id,sys_role_id,creator,create_time,mender,modify_time,is_delete
+	</sql>
+
+    <!--根据Id查询记录-->
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT
+        <include refid="All_Column_List"/>
+        FROM sys_user_vs_role WHERE id=#{id}
+    </select>
+
+    <!--根据给定的记录查询一批记录-->
+    <select id="selectByIds" resultMap="BaseResultMap">
+        SELECT
+        <include refid="All_Column_List"/>
+        FROM sys_user_vs_role
+        WHERE id in
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <!--新增记录-->
+    <insert id="insert" parameterType="com.jw.sys.bean.entity.SysUserVsRole">
+        INSERT INTO sys_user_vs_role(
+        sys_user_id,sys_role_id,creator,create_time,mender,modify_time,is_delete
+        ) VALUES (
+        #{sysUserId},
+        #{sysRoleId},
+        #{creator},
+        NOW(),
+        #{mender},
+        NOW(),
+        0
+        )
+    </insert>
+
+    <!--新增记录，只匹配有值的字段-->
+    <insert id="insertSelective" parameterType="com.jw.sys.bean.entity.SysUserVsRole">
+        INSERT INTO sys_user_vs_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysUserId !=null">sys_user_id,</if>
+            <if test="sysRoleId !=null">sys_role_id,</if>
+            <if test="creator !=null">creator,</if>
+            create_time,
+            <if test="mender !=null">mender,</if>
+            modify_time,
+            is_delete
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysUserId !=null">#{sysUserId},</if>
+            <if test="sysRoleId !=null">#{sysRoleId},</if>
+            <if test="creator !=null">#{creator},</if>
+            NOW(),
+            <if test="mender !=null">#{mender},</if>
+            NOW(),
+            0
+        </trim>
+    </insert>
+
+    <!--根据Id更新记录-->
+    <update id="updateById" parameterType="com.jw.sys.bean.entity.SysUserVsRole">
+        UPDATE sys_user_vs_role SET
+        sys_user_id = #{sysUserId},
+        sys_role_id = #{sysRoleId},
+        creator = #{creator},
+        create_time = #{createTime},
+        mender = #{mender},
+        modify_time = NOW(),
+        is_delete = #{isDelete}
+        WHERE id = #{id}
+    </update>
+
+    <!--根据Id更新记录,只更新有值的字段-->
+    <update id="updateSelectiveById" parameterType="com.jw.sys.bean.entity.SysUserVsRole">
+        UPDATE sys_user_vs_role
+        <set>
+            <if test="sysUserId != null">sys_user_id = #{sysUserId},</if>
+            <if test="sysRoleId != null">sys_role_id = #{sysRoleId},</if>
+            <if test="creator != null">creator = #{creator},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="mender != null">mender = #{mender},</if>
+            modify_time = NOW(),
+            <if test="isDelete != null">is_delete = #{isDelete},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!--根据Id删除记录-->
+    <delete id="deleteById">
+		DELETE FROM sys_user_vs_role WHERE id =#{id}
+	</delete>
+
+    <!--根据Id删除一批记录-->
+    <delete id="deleteByIds">
+        DELETE FROM sys_user_vs_role WHERE id in
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!-- 以上为工具生成，公用，以下为业务逻辑，专用 -->
+
+    <!--根据userId查询记录-->
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="All_Column_List"/>
+        FROM sys_user_vs_role WHERE sys_user_id = #{userId} and is_delete = 0
+    </select>
+
+    <update id="deleteByUserId">
+        update sys_user_vs_role
+        set modify_time=NOW(),
+        mender=#{mender},
+        is_delete=1
+        where sys_user_id = #{userId}
+    </update>
+
+    <select id="selectByRoleId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="All_Column_List"/>
+        FROM sys_user_vs_role WHERE sys_role_id = #{roleId} and is_delete = 0
+    </select>
+</mapper>

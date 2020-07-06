@@ -1,0 +1,134 @@
+@layout("/common/_container.html"){
+<style>
+    .select_height .form-group{
+        height: 30px;
+    }
+    .select_height .col-sm-3{
+        height: 34px;
+        line-height: 34px;
+    }
+</style>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>上传视频</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form id="uploadform" method="post" enctype="multipart/form-data">
+                            <div class="col-sm-12">
+                                请选择预览图
+                                <input type="file" id="posterImg" name = "posterImg" onchange="uploadPoster()"/>
+                            </div>
+                        </form>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <form id="uploadform1" method="post" enctype="multipart/form-data">
+                            <div class="col-sm-12">
+                                请选择上传视频
+                                <input type="file" id="file" name = "file" onchange="uploadfile()"/>
+                            </div>
+                        </form>
+
+                        <div class="col-sm-12" style="text-align: center">
+                            <#button btnCss="info" name="确定" id="ensure" icon="fa-check" clickFun="ueSubmit()"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    <script>
+
+        var posterImg  = '';
+        var url = '';
+        var imgs = '';
+
+        function uploadPoster() {
+            if($("#posterImg").val().indexOf(".jpg") != -1 || $("#posterImg").val().indexOf(".png") != -1 ) {
+                upload = layer.msg('上传中。。。', {
+                    icon: 16,
+                    shade: 0.2,
+                    time: false
+                });
+                console.info(JSON.stringify($("#uploadform")[0]))
+                $.ajax({
+                    url: Feng.ctxPath + "/scenicSpot/uploadVideo",
+                    data: new FormData($("#uploadform")[0]),
+                    type: 'POST',
+                    dataType: 'json',
+                    processData: false,// 不处理数据
+                    contentType: false, // 不设置内容类型
+                    success: function (data) {
+                        layer.close(upload);
+                        if (data.code == 200) {
+                            alert("上传成功")
+                            posterImg = data.url;
+                        } else {
+                            alert("上传失败")
+                        }
+                    },
+                })
+            } else {
+                alert("请上传 jpg 格式或 png 格式的文件");
+                $("#posterImg").val('');
+                return
+            }
+        }
+
+
+        function uploadfile() {
+            if($("#file").val().indexOf(".mp4") != -1) {
+                upload = layer.msg('上传中。。。', {
+                    icon: 16,
+                    shade: 0.2,
+                    time: false
+                });
+                $.ajax({
+                    url: Feng.ctxPath + "/scenicSpot/uploadVideo",
+                    data: new FormData($("#uploadform1")[0]), //将表单数据序列化，格式为name=value
+                    type: 'POST',
+                    dataType: 'json',
+                    processData: false,// 不处理数据
+                    contentType: false, // 不设置内容类型
+                    success: function (data) {
+                        layer.close(upload);
+                        if (data.code == 200) {
+                            alert("上传成功")
+                            url = data.url;
+                        } else {
+                            alert("上传失败")
+                        }
+                    },
+                })
+            } else {
+                alert("请上传 mp4 格式的文件");
+                $("#file").val('');
+                return
+            }
+        }
+
+        function ueSubmit() {
+
+            if(url == ''){
+                alert("请上传视频")
+                return
+            }
+
+            if(posterImg == ''){
+                alert("请上传预览图")
+                return
+            }
+
+            imgs += '<video src= "' + url + '" controls="controls" poster="' + posterImg + '"/>';
+            console.info("url : " + imgs);
+            window.parent.editor1.execCommand('insertHtml', '<p>' + imgs + '</p>');
+            parent.layer.closeAll();
+        }
+    </script>
+@}

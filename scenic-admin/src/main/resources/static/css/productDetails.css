@@ -1,0 +1,447 @@
+@charset "utf-8";
+body{background-color: #f7f7f7;}
+.mic_1{
+	float: left;
+	width: 100%;
+	margin-top: .1rem;
+}
+.title{
+	float: left;
+	width: 100%;
+	height: 3rem;
+	line-height: 3rem;
+	font-size: 3rem;
+	color: #979797;
+	background-color: #f7f8f7;
+	padding: 0 .3rem;
+	box-sizing: border-box;
+}
+.content_text{
+	float: left;
+	width: 100%;
+	background-color: #ffffff;
+}
+.content_text .content_div{
+	float: left;
+	font-size: 2.6rem;
+	color: #453C33;
+	margin: .5rem .37rem .17rem .37rem;
+	width: calc(100% - .74rem);
+	text-indent: 1em;
+}
+.titleIoc{
+	/*float: left;
+	width: 5.56rem;
+	height: .31rem;
+	margin: .5rem calc((100% - 5.56rem) / 2);*/
+	width:100%;
+}
+.demand{
+	float: left;
+	width: 100%;
+	border-bottom: 1px dashed #b9b9b9;
+	margin-bottom: .5rem;
+}
+.demand ul{
+	float: left;
+	width: calc(100% - .74rem);
+	margin: 0 .37rem;
+	padding-bottom: .5rem;
+}
+.demand ul li{
+	float: left;
+	width: calc((100% - .56rem) / 3);
+	height: 1.52rem;
+	background: url(../img/ring.png) no-repeat;
+	background-size: 100% 100%;
+	margin-right: .28rem;
+	text-align: center;
+	line-height: 1.52rem;
+	font-size: .26rem;
+	color: #F89C75;
+}
+.demand ul li:last-child{
+	margin-right: 0;
+}
+.cont_p{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-size: .26rem;
+	color: #87849C;
+	margin-bottom: .45rem;
+}
+.mic_2{
+	float: left;
+	margin-left:calc((100% - 50rem) / 2) ;
+	width: 50rem;
+	/*height: 2.7rem;*/
+	padding-bottom: .3rem;
+}
+.mic_3{
+	float: left;
+	width: 50rem;
+	/*height: 1.79rem;*/
+	margin: .5rem 0 .3rem calc((100% - 50rem) / 2);
+}
+.amount{
+	float: left;
+	width: 100%;
+	font-size: 2.6rem;
+	color: #746F6B;
+	padding: 0 0 .4rem .3rem;
+	box-sizing: border-box;
+}
+.taoXuz{
+	float: left;
+	width: 100%;
+	padding: 0 .3rem .3rem .3rem;
+	box-sizing: border-box;
+	font-size: 2.4rem;
+	color: #7C7873;
+}
+.taoXuz p{
+	font-size: 2.6rem;
+	color: #6A625A;
+	margin: .3rem 0 .15rem 0;
+}
+.mic_4{
+	float: left;
+	width: 75rem;
+	/*height: 4.2rem;*/
+	margin-left: calc((100% - 75rem) / 2);
+}
+.cpExamples{
+	float: left;
+	padding: .5rem .3rem;
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 2.4rem;
+	color: #8D8985;
+}
+.cpExamples span{
+	font-size: .2rem;
+}
+.title img{
+	float: left;
+	width: .3rem;
+	height: .22rem;
+	margin-top: .29rem;
+}
+.fixBtn{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: .98rem;
+}
+.fixBtn input{
+	float: left;
+	width: 100%;
+	height: .98rem;
+	border: 0;
+	border-radius: 0;
+	font-size: .34rem;
+	color: #FFFFFF;
+	background-color: #025AAC;
+}
+/*Insured*/
+.insuredInfo{
+	float: left;
+	width: 100%;
+	background-color: #ffffff;
+	margin-top: .1rem;
+	padding-bottom: .12rem;
+}
+.titleIoc2{
+	float: left;
+	width: 4.02rem;
+	height: .35rem;
+	margin: .5rem calc((100% - 4.02rem) / 2);
+}
+.fillMessage{
+	float: left;
+	width: calc(100% - .4rem);
+	margin: 0 .2rem;
+}
+.fillMessage ul li{
+	float: left;
+	width: 100%;
+	height: .95rem;
+	color: #372d23;
+	font-size: .26rem;
+	border-bottom: 1px solid #bfbfbf;
+	line-height: .95rem;
+	    overflow: hidden;
+}
+.fillMessage ul li:last-child{
+	border-bottom: 0;
+}
+.fillMessage ul li .messTest{
+	float: left;
+	width: 1.93rem;
+}
+.fillMessage ul li .messTest .messageImg{
+	float: left;
+	width: .65rem;
+	height: .95rem;
+}
+.fillMessage ul li .messTest .ioc1 img,
+.fillMessage ul li .messTest .ioc5 img{
+	float: left;
+    width: .35rem;
+    height: .35rem;
+    margin-top: .28rem;
+}
+.fillMessage ul li .messTest .ioc2 img{
+	float: left;
+    width: .23rem;
+    height: .35rem;
+    margin-top: .28rem;
+}
+.fillMessage ul li .messTest .ioc3 img,
+.fillMessage ul li .messTest .ioc4 img{
+	float: left;
+    width: .35rem;
+    height: .26rem;
+    margin-top: .34rem;
+}
+.fillMessage ul li .messTest .ioc6 img{
+	float: left;
+    width: .29rem;
+    height: .35rem;
+    margin-top: .3rem;
+}
+.fillMessage ul li .messTest .ioc7 img{
+	float: left;
+    width: .35rem;
+    height: .27rem;
+    margin-top: .34rem;
+}
+.fillMessage ul li .messTest .ioc8 img{
+	float: left;
+    width: .34rem;
+    height: .42rem;
+    margin-top: .26rem;
+}
+.fillMessage ul li .messTest .ioc9 img{
+	float: left;
+    width: .35rem;
+    height: .39rem;
+    margin-top: .27rem;
+}
+.fillMessage ul li .messTest .ioc10 img,
+.fillMessage ul li .messTest .ioc13 img{
+	float: left;
+    width: .35rem;
+    height: .38rem;
+    margin-top: .27rem;
+}
+.fillMessage ul li .messTest .ioc11 img{
+	float: left;
+    width: .35rem;
+    height: .35rem;
+    margin-top: .3rem;
+}
+.fillMessage ul li .messTest .ioc14 img{
+	float: left;
+    width: .3rem;
+    height: .4rem;
+    margin-top: .27rem;
+}
+.fillMessage ul li .messTest .ioc15 img{
+	float: left;
+    width: .32rem;
+    height: .38rem;
+    margin-top: .26rem;
+}
+
+.fillMessage ul li input{
+	float: left;
+	width: calc(100% - 1.93rem);
+	border: 0;
+	height: .85rem;
+	text-align: right;
+	font-size: .26rem;
+	color: #372d23;
+	background-color: #fff;
+	margin-top: .05rem;
+}
+.fillMessage ul li select{
+	float: left;
+	width: calc(100% - 1.93rem);
+	border: 0;
+	height: .85rem;
+	font-size: .26rem;
+	color: #372d23;
+	background-color: #fff;
+	margin-top: .05rem;
+}
+.fillMessage ul li .sexRadio{
+	float: right;
+}
+.fillMessage ul li .sexRadio label{
+	float: left;
+	font-size: .26rem;
+	color: #372d23;
+	margin-left: .25rem;
+}
+.fillMessage ul li .sexRadio label input[type="radio"]{
+	width: .16rem;
+	height: .16rem;
+	background: url(../img/radio1.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+    border: none;
+	border-radius: 0;
+	float: left;
+	margin: .39rem .1rem 0 0;
+}
+.fillMessage ul li .sexRadio label input[type="radio"]:checked{
+	width: .16rem;
+	height: .16rem;
+	background: url(../img/radio2.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+    border: none;
+	border-radius: 0;
+	float: left;
+	margin: .39rem .1rem 0 0;
+}
+.fillMessage ul li .appDate{
+	background: url(../img/date.png) no-repeat right;
+	background-size: .34rem .3rem;
+	padding-right: .4rem;
+	box-sizing: border-box;
+}
+.titleIoc3{
+	float: left;
+	width: 6.22rem;
+	height: .35rem;
+	margin: .5rem calc((100% - 6.22rem) / 2);
+}
+.titleIoc4{
+	float: left;
+	width: 3.63rem;
+	height: .35rem;
+	margin: .5rem calc((100% - 3.63rem) / 2);
+}
+.titleIoc5{
+	float: left;
+	width: 4.16rem;
+	height: .31rem;
+	margin: .5rem calc((100% - 4.16rem) / 2);
+}
+.healthyInfo{
+	float: left;
+    padding: 0 .3rem;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: .24rem;
+    color: #8D8985;
+}
+.fixBtn2{
+	width: 100%;
+	position: fixed;
+	height: .98rem;
+	bottom: 0;
+	z-index: 333;
+	background-color: #fff;
+	border-top: 1px solid #f7f7f7;
+}
+.fixBtn2 input{
+	width: calc(100% / 2);
+	height: .98rem;
+	border: 0;
+	border-radius: 0;
+	background-color: #ffffff;
+	color: #025AAC;
+	float: left;
+}
+.fixBtn2 input:last-child{
+	color: #ffffff;
+	background-color: #025AAC;
+}
+.Benefits{
+	float: left;
+    width: calc(100% - .4rem);
+    height: .52rem;
+    line-height: .52rem;
+    margin: 0 .2rem;
+    font-size: .28rem;
+    color: #035aac;
+    padding-bottom: .15rem;
+}
+.Benefits .ioc16{
+	float: left;
+	width: .36rem;
+	height: .36rem;
+	margin: .08rem .25rem 0 0;
+}
+.Benefits span{
+	float: right;
+	width: 1rem;
+	height: .5rem;
+	text-align: center;
+	display: inline-block;
+	line-height: .5rem;
+	border-radius: 50px;
+	border: 1px solid #025AAC;
+}
+.Terms{
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
+	padding: .4rem .2rem .2rem .52rem;
+	font-size: .24rem;
+	color: #9b9b9b;
+	position: relative;
+}
+.Terms input[type="checkbox"]{
+	width: .24rem;
+	height: .24rem;
+	position: absolute;
+	top: .47rem;
+	left: .2rem;
+	background:url(../img/checkbox1.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+    border: none;
+	border-radius: 0;
+}
+.Terms input[type="checkbox"]:checked{
+	width: .24rem;
+	height: .24rem;
+	position: absolute;
+	top: .47rem;
+	left: .2rem;
+	background:url(../img/checkbox2.png) no-repeat;
+	background-size: 100% 100%;
+	outline: none;
+    border: none;
+	border-radius: 0;
+}
+.Terms a{
+	color: #035aac;
+}
+.reminder{
+	float: left;
+	width: 100%;
+	padding: 0 .2rem;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: .2rem;
+	color: #9b9b9b;
+}
+.reminder p{
+	margin-bottom: .1rem;
+}
+
+
+
+
+
+
+
+
+
+

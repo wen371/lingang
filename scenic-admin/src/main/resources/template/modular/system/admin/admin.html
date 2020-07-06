@@ -1,0 +1,56 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>管理员管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                        <!--    <div class="col-lg-4 col-sm-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">组织机构</div>
+                                    <div class="panel-body dept-tree">
+                                        <ul id="workPointTree" class="ztree"></ul>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div class="col-lg-12 col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <#NameCon id="name" name="用户名称" placeholder="帐号/姓名/手机号"/>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <#TimeCon id="beginTime" name="注册开始日期" isTime="false" pattern="YYYY-MM-DD"/>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <#TimeCon id="endTime" name="注册结束日期" isTime="false" pattern="YYYY-MM-DD"/>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <#button name="搜索" icon="fa-search" clickFun="Admin.search()" space="true"/>
+                                        <#button name="重置" icon="fa-trash" clickFun="Admin.resetSearch()" space="true"/>
+                                    </div>
+                                </div>
+
+                                <div class="hidden-xs" id="adminTableToolbar" role="group">
+                                    <#button name="添加" icon="fa-plus" clickFun="Admin.openAddAdmin()"/>
+                                    <#button name="修改" icon="fa-edit" clickFun="Admin.openChangeAdmin()" />
+                                    <#button name="重置密码" icon="fa-refresh" clickFun="Admin.resetPwd()" />
+                                    <#button name="冻结" icon="fa-warning" clickFun="Admin.freezeAccount()" />
+                                    <#button name="解除冻结" icon="fa-check-circle" clickFun="Admin.unfreeze()" />
+                                    <#button name="角色分配" icon="fa-user-secret" clickFun="Admin.roleAssign()" />
+                                    <#button name="删除" icon="fa-remove" clickFun="Admin.delMgrUser()" />
+                                </div>
+                                <#table id="adminTable"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${basePath}/static/modular/system/tiananAdmin/admin.js?v=1.0"></script>
+@}
